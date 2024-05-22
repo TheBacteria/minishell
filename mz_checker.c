@@ -6,21 +6,23 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 15:48:31 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/22 15:50:06 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/05/22 16:04:44 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	mz_is_space(s)
+int	mz_is_space(char c)
 {
-	
+	if ((c >= 9 && c <= 13) || c == 32)
+		return (0);
+	return (1); 
 }
-int	mz_is_special(s)
+
+int	mz_is_special(char c)
 {
-	
-}
-int	mz_is_word(s)
-{
-	
+	if (c == '\'' || c == '\"' || c == '$' || c == '|' || c == '<' || c == '>'
+		|| c == '(' || c == ')' || c == '*' || c == '&')
+		return (0);
+	return (1); 
 }
