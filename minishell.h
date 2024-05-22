@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 16:41:53 by ymassiou          #+#    #+#             */
-/*   Updated: 2024/05/22 09:34:25 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/05/22 18:58:58 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,5 @@ void    and_handler(t_token *token, t_shell *data);
 void    or_handler(t_token *token, t_shell *data);
 void infix_to_postfix(t_token *infix, t_token **exp, t_token **stack, t_shell *data);
 char	*check_command(char *command, char **paths, int *flag);
-
-
-
-int	mz_parser(char *s);
 
 #endif
