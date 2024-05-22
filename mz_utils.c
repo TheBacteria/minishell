@@ -1,39 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mz_parser.c                                        :+:      :+:    :+:   */
+/*   mz_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/19 15:54:01 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/22 16:18:10 by mzouine          ###   ########.fr       */
+/*   Created: 2024/05/22 16:30:52 by mzouine           #+#    #+#             */
+/*   Updated: 2024/05/22 16:31:05 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static t_list *mz_first_scan(char *s)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	t_list	*head;
-	int		i;
+	size_t	tol;
+	size_t	i;
+	char	*sub;
 
+	if (!s)
+		return (NULL);
 	i = 0;
-	while (s[i])
+	if (start > ft_strlen(s))
+		return (ft_strdup(""));
+	if (len > ft_strlen(s) - start)
+		tol = ft_strlen(s) - start;
+	else
+		tol = len;
+	sub = malloc(tol + 1);
+	if (!sub)
+		return (NULL);
+	while (i < tol)
 	{
-		if (mz_is_space(s[i]))
-			i = make_space_nd(&head, s, i);
-		else if (mz_is_special(s[i]))
-			i = make_special_nd(&head, s, i);
-		else
-			i = make_word_nd(&head, s, i);
+		sub[i] = s[start + i];
+		i++;
 	}
-	return (head);
-}
-
-t_list	*mz_parser(char *s)
-{
-	t_list *head;
-	
-	head = mz_first_scan(s);
-	return (0);
+	sub[i] = '\0';
+	return (sub);
 }

@@ -1,39 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mz_parser.c                                        :+:      :+:    :+:   */
+/*   mz_lexer.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/19 15:54:01 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/22 16:18:10 by mzouine          ###   ########.fr       */
+/*   Created: 2024/05/22 16:08:26 by mzouine           #+#    #+#             */
+/*   Updated: 2024/05/22 16:27:10 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static t_list *mz_first_scan(char *s)
+int	make_space_nd(t_list **head, char *s, int i)
 {
-	t_list	*head;
-	int		i;
+	t_list	*new;
 
-	i = 0;
-	while (s[i])
+	while (mz_is_space(s[i]))
 	{
-		if (mz_is_space(s[i]))
-			i = make_space_nd(&head, s, i);
-		else if (mz_is_special(s[i]))
-			i = make_special_nd(&head, s, i);
-		else
-			i = make_word_nd(&head, s, i);
+		
 	}
-	return (head);
+	new->nature = 32;
 }
 
-t_list	*mz_parser(char *s)
+int	make_special_nd(t_list **head, char *s, int i)
 {
-	t_list *head;
-	
-	head = mz_first_scan(s);
-	return (0);
+	t_list	*new;
+
+	while (mz_is_space(s[i]))
+	{
+		
+	}
+}
+
+int	make_word_nd(t_list **head, char *s, int i)
+{
+	t_list	*new;
+
+	while (!mz_is_space(s[i]) && !mz_is_special(s[i]))
+	{
+		
+	}
+	new->nature = -1;
 }
