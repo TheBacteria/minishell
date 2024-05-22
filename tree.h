@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 16:20:39 by ymassiou          #+#    #+#             */
-/*   Updated: 2024/05/20 13:27:58 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/05/22 11:49:21 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,7 @@ typedef struct s_token
 	struct s_token *left;
 	char *cmd;
 	char **args;
-	char *nature;
-	int priority;
+	int	nature;
 	char *in;
 	char *out;
 	int fd_in;
