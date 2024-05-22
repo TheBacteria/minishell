@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:08:26 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/22 17:37:57 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/05/22 18:58:33 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,23 +50,23 @@ int	make_word_nd(t_list **head, char *s, int i)
 int	make_special_nd(t_list **head, char *s, int i)
 {
 	if (s[i] == '|')
-		return ();
+		return (make_pipe(head, s, i));
 	else if (s[i] == '>')
-		return ();
+		return (make_in(head, s, i));
 	else if (s[i] == '<')
-		return ();
+		return (make_out(head, s, i));
 	else if (s[i] == '&')
-		return ();
+		return (make_and(head, s, i));
 	else if (s[i] == '\'')
-		return ();
+		return (make_quote(head, s, i));
 	else if (s[i] == '\"')
-		return ();
+		return (make_dquote(head, s, i));
 	else if (s[i] == '$')
-		return ();
+		return (make_dollar(head, s, i));
 	else if (s[i] == '(')
-		return ();
+		return (make_o_par(head, s, i));
 	else if (s[i] == ')')
-		return ();
+		return (make_c_par(head, s, i));
 	else if (s[i] == '*')
-		return ();
+		return (make_star(head, s, i));
 }

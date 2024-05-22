@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 13:26:40 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/22 16:31:20 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/05/22 18:57:42 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,20 @@ int		mz_is_special(char c);
 int		make_space_nd(t_list **head, char *s, int i);
 int		make_special_nd(t_list **head, char *s, int i);
 int		make_word_nd(t_list **head, char *s, int i);
+int		make_pipe(t_list **head, char *s, int i);
+int		make_in(t_list **head, char *s, int i);
+int		make_out(t_list **head, char *s, int i);
+int		make_and(t_list **head, char *s, int i);
+int		make_quote(t_list **head, char *s, int i);
+
+int		make_dquote(t_list **head, char *s, int i);
+
+int		make_dollar(t_list **head, char *s, int i);
+
+int		make_o_par(t_list **head, char *s, int i);
+
+int		make_c_par(t_list **head, char *s, int i);
+
+int		make_star(t_list **head, char *s, int i);
 
 #endif
