@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:08:26 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/22 16:50:21 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/05/22 17:37:57 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,24 @@ int	make_word_nd(t_list **head, char *s, int i)
 
 int	make_special_nd(t_list **head, char *s, int i)
 {
-	t_list	*new;
-	
-
-	if (!mz_is_special(s[i + 1]))
-	{
-		new = mz_lstnew()
-	}
-
-	
+	if (s[i] == '|')
+		return ();
+	else if (s[i] == '>')
+		return ();
+	else if (s[i] == '<')
+		return ();
+	else if (s[i] == '&')
+		return ();
+	else if (s[i] == '\'')
+		return ();
+	else if (s[i] == '\"')
+		return ();
+	else if (s[i] == '$')
+		return ();
+	else if (s[i] == '(')
+		return ();
+	else if (s[i] == ')')
+		return ();
+	else if (s[i] == '*')
+		return ();
 }
