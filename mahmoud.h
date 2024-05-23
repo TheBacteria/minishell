@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 13:26:40 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/23 11:24:13 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/05/23 15:22:41 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 typedef struct s_list
 {
-	char			*s;
-	int 			nature;
 	struct s_list	*next;
 	struct s_list	*prev;
+	char			*s;
+	int 			nature;
 }					t_list;
 
 enum e_token

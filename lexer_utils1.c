@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 17:39:06 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/22 18:40:14 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/05/23 15:21:25 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,14 @@ int	make_in(t_list **head, char *s, int i)
 	{
 		str = ft_substr(s, i, 2);
 		new = mz_lstnew(str);
-		new->nature = 124;
+		new->nature = -1;     //124
 		i = i + 2;
 	}
 	else
 	{
 		str = ft_substr(s, i, 1);
 		new = mz_lstnew(str);
-		new->nature = '>';
+		new->nature = -1; // '>'
 		i = i + 1;
 	}
 	free(str);
@@ -69,14 +69,14 @@ int	make_out(t_list **head, char *s, int i)
 	{
 		str = ft_substr(s, i, 2);
 		new = mz_lstnew(str);
-		new->nature = 120;
+		new->nature = -1; // 120
 		i = i + 2;
 	}
 	else
 	{
 		str = ft_substr(s, i, 1);
 		new = mz_lstnew(str);
-		new->nature = '<';
+		new->nature = -1; // '<'
 		i = i + 1;
 	}
 	free(str);
