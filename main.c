@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:00:38 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/23 11:44:19 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/05/23 11:57:18 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	main(int ac, char **av, char **env)
 			printf("Error!\nreadline returned NULL\n");
 			return (1);
 		}
+		printf("aaaaapaaaaah\n\n");
 		linked = mz_parser(s);
 		free(s);
 		while (linked)
