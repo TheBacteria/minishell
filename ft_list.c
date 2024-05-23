@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 16:33:34 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/23 13:34:22 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/05/23 14:22:20 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	mz_lstadd_back(t_list **lst, t_list *new)
 	}
 	ptr = mz_lstlast(*lst);
 	ptr->next = new;
+	new->prev = ptr;
 }
 
 t_list	*mz_lstnew(char *content)
@@ -49,5 +50,6 @@ t_list	*mz_lstnew(char *content)
 		return (NULL);
 	new -> s = ft_strdup(content);
 	new -> next = NULL;
+	new->prev = NULL;
 	return (new);
 }

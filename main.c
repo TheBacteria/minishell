@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:00:38 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/23 12:35:28 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/05/23 14:22:43 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,6 @@ int	main(int ac, char **av, char **env)
 		return (1);
 	}
 	envp = env_parse(env);
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	while (1)
 	{
 		s = readline("minishell:");
@@ -35,13 +32,17 @@ int	main(int ac, char **av, char **env)
 			printf("Error!\nreadline returned NULL\n");
 			return (1);
 		}
-		// printf("aaaaapaaaaah\n\n");
 		linked = mz_parser(s);
 		free(s);
 		while (linked)
 		{
 			printf("%s  --> %i\n", linked->s, linked->nature);
 			linked = linked->next;
+		}
+		while (linked)
+		{
+			printf("%s  --> %i\n", linked->s, linked->nature);
+			linked = linked->prev;
 		}
 	}
 	return (0);
@@ -51,7 +52,7 @@ int	main(int ac, char **av, char **env)
 
 
 
-
+// ls -la | ( cat -e && wc -l && echo '$VAR') | grep "something i want" > outfile || < infile cat
 
 /*  !! TO FREE ENVP !!!!
 
