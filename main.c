@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:00:38 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/22 12:02:07 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/05/23 11:44:19 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	main(int ac, char **av, char **env)
 {
 	char	*s;
 	t_list	*envp;
+	t_list	*linked;
 
 	if (ac != 1)
 	{
@@ -34,8 +35,13 @@ int	main(int ac, char **av, char **env)
 			printf("Error!\nreadline returned NULL\n");
 			return (1);
 		}
-		mz_parser(s);
+		linked = mz_parser(s);
 		free(s);
+		while (linked)
+		{
+			printf("%s  --> %i\n", linked->s, linked->nature);
+			linked = linked->next;
+		}
 	}
 	return (0);
 }

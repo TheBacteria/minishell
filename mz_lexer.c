@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:08:26 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/23 11:25:43 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/05/23 11:38:14 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	make_space_nd(t_list **head, char *s, int i)
 	int		n;
 
 	n = i;
-	while (mz_is_space(s[i]))
+	while (mz_is_space(s[i]) && s[i])
 		i++;
 	str = ft_substr(s, n, i - n);
 	new = mz_lstnew(str);
@@ -37,7 +37,7 @@ int	make_word_nd(t_list **head, char *s, int i)
 	int		n;
 
 	n = i;
-	while (!mz_is_space(s[i]) && !mz_is_special(s[i]))
+	while (!mz_is_space(s[i]) && !mz_is_special(s[i]) && s[i])
 		i++;
 	str = ft_substr(s, n, i - n);
 	new = mz_lstnew(str);
