@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 15:54:01 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/23 15:19:56 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/05/23 15:33:03 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ t_list	*mz_parser(char *s)
 	
 	head = mz_first_scan(s);
 
-	// list = mz_last_scan(head);
+	list = mz_last_scan(head);
 	return (head);
 }

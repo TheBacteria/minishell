@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 16:20:39 by ymassiou          #+#    #+#             */
-/*   Updated: 2024/05/23 15:22:45 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/05/23 15:34:43 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,18 @@ typedef struct s_token
 {
 	struct s_token	*next;
 	struct s_token	*previous;
-	struct s_token	*right;
-	struct s_token	*left;
 	char			*cmd;
 	char			**args;
 	int				nature;
+	int				quote;
+	int				d_quote;
+	int				par;
 	char			*in;
 	char			*out;
 	int				fd_in;
 	int				fd_out;
+	struct s_token	*right;
+	struct s_token	*left;
 	t_redir			*redirs_out;
 	t_redir			*redirs_in;
 }	t_token;
