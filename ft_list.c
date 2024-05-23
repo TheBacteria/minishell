@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 16:33:34 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/22 16:33:06 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/05/23 12:11:46 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,16 @@
 
 t_list	*mz_lstlast(t_list *lst)
 {
+	t_list *tmp;
 	if (!lst)
 		return (NULL);
-	while (lst->next)
+	while (lst)
+	{
+		tmp = lst;
 		lst = lst->next;
-	return (lst);
+	}
+	printf("sad\n");
+	return (tmp);
 }
 
 void	mz_lstadd_back(t_list **lst, t_list *new)

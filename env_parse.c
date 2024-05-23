@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 12:05:47 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/22 09:46:49 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/05/23 12:05:03 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_list	*env_parse(char **envp)
 	t_list	*head;
 	
 	i = 0;
+	head = NULL;
 	while (envp[i])
 	{
 		env = mz_lstnew(envp[i]);
