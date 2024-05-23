@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 16:33:34 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/23 12:11:46 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/05/23 13:34:22 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ t_list	*mz_lstlast(t_list *lst)
 		tmp = lst;
 		lst = lst->next;
 	}
-	printf("sad\n");
 	return (tmp);
 }
 
