@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:00:38 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/23 14:27:14 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/05/23 15:31:37 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	main(int ac, char **av, char **env)
 	char	*s;
 	t_list	*envp;
 	t_list	*linked;
-	t_list	*tmp;
 
 	if (ac != 1)
 	{
@@ -35,17 +34,10 @@ int	main(int ac, char **av, char **env)
 		}
 		linked = mz_parser(s);
 		free(s);
-		tmp = linked;
 		while (linked)
 		{
 			printf("%s  --> %i\n", linked->s, linked->nature);
 			linked = linked->next;
-		}
-		linked = mz_lstlast(tmp);
-		while (linked)
-		{
-			printf("%s  --> %i\n", linked->s, linked->nature);
-			linked = linked->prev;
 		}
 	}
 	return (0);
