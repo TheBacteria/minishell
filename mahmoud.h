@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 13:26:40 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/22 18:59:18 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/05/23 11:24:13 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ enum e_token
     DREDIR_OUT, // >>
 };
 
+char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 t_list	*mz_lstnew(char *content);
 void	mz_lstadd_back(t_list **lst, t_list *new);
@@ -56,15 +57,10 @@ int		make_in(t_list **head, char *s, int i);
 int		make_out(t_list **head, char *s, int i);
 int		make_and(t_list **head, char *s, int i);
 int		make_quote(t_list **head, char *s, int i);
-
 int		make_dquote(t_list **head, char *s, int i);
-
 int		make_dollar(t_list **head, char *s, int i);
-
 int		make_o_par(t_list **head, char *s, int i);
-
 int		make_c_par(t_list **head, char *s, int i);
-
 int		make_star(t_list **head, char *s, int i);
 
 #endif

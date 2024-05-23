@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:08:26 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/22 18:58:33 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/05/23 11:25:43 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,5 @@ int	make_special_nd(t_list **head, char *s, int i)
 		return (make_c_par(head, s, i));
 	else if (s[i] == '*')
 		return (make_star(head, s, i));
+	return (i);
 }

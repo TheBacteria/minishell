@@ -1,1 +1,1 @@
-make all && sleep 1 && make clean && clear
+make all && make clean && clear
