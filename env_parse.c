@@ -21,6 +21,7 @@ t_list	*env_parse(char **envp)
 	
 	i = 0;
 	head = NULL;
+	env = NULL;
 	while (envp[i])
 	{
 		env = mz_lstnew(envp[i]);
