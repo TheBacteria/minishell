@@ -2,5 +2,6 @@
 	"files.associations": {
 		"bitset": "c",
 		"minishell.h": "c"
-	}
+	},
+	"editor.insertSpaces": false
 }
