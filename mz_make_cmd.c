@@ -15,4 +15,5 @@
 void	mz_make_cmd(t_token **list, t_list *head)
 {
 	t_list	*tmp;
+	
 }
