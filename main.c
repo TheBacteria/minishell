@@ -16,7 +16,7 @@ int	main(int ac, char **av, char **env)
 {
 	char	*s;
 	t_list	*envp;
-	t_list	*linked;
+	t_list	*linked; 
 
 	if (ac != 1)
 	{
