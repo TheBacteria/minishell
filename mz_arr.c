@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:01:28 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/28 12:47:55 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/05/28 15:37:26 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ static char	**mz_addarray(char **org, char **arr, int size)
 		i++;
 	}
 	new[i] = NULL;
-	return (NULL);
+	return (new);
 }
 
 char	**mz_arr(char **org, char **arr, char *s, int flag) // 1 to add string, 2 to add array !
