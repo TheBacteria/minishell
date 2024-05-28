@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 13:26:40 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/23 15:22:41 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/05/28 10:40:28 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ typedef struct s_list
 	struct s_list	*prev;
 	char			*s;
 	int 			nature;
+    int				quote;
+	int				d_quote;
 }					t_list;
 
 enum e_token
@@ -40,6 +42,8 @@ enum e_token
     DREDIR_OUT, // >>
 };
 
+char	**mz_split(char const *s, char c);
+char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 t_list	*mz_lstnew(char *content);
@@ -62,5 +66,8 @@ int		make_dollar(t_list **head, char *s, int i);
 int		make_o_par(t_list **head, char *s, int i);
 int		make_c_par(t_list **head, char *s, int i);
 int		make_star(t_list **head, char *s, int i);
+t_token *mz_last_scan(t_list *head);
+void	mz_make_special(t_token **list, t_list **head);
+void	mz_make_cmd(t_token **list, t_list **head);
 
 #endif

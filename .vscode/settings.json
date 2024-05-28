@@ -1,7 +1,8 @@
 {
 	"files.associations": {
 		"bitset": "c",
-		"minishell.h": "c"
+		"minishell.h": "c",
+		"sstream": "c"
 	},
 	"editor.insertSpaces": false
 }

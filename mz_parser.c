@@ -39,6 +39,7 @@ t_list	*mz_parser(char *s)
 	
 	head = mz_first_scan(s);
 	tmp = head;
-	// list = mz_last_scan(head);
+	// here should be the second scan for syntax errors!
+	list = mz_last_scan(head);
 	return (head);
 }

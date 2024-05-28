@@ -12,7 +12,7 @@
 
 NAME = minishell
 
-SRC = env_parse.c lexer_utils1.c  main.c mz_lexer.c mz_utils.c ft_list.c lexer_utils2.c mz_checker.c mz_parser.c
+SRC = env_parse.c mz_lexer.c ft_list.c mz_make_cmd.c lexer_utils1.c mz_make_special.c lexer_utils2.c mz_parser.c main.c mz_utils.c mz_checker.c yasser_lst.c mz_last_scan.c
 
 OBJS = $(SRC:%.c=%.o)
 CC = cc

@@ -76,7 +76,7 @@ void TEST_setto(t_token *p);
 /***************************************/
 int		ft_lstsize(t_token *lst);
 t_token	*token_clone(t_token *token);
-t_token	*ft_lstnew(char *cmd, int type);
+t_token	*ft_lstnew(char *cmd);
 t_token	*ft_lstlast(t_token *lst);
 void	ft_lstadd_front(t_token **lst, t_token *new);
 void	ft_lstadd_back(t_token **lst, t_token *new, t_token *pre);

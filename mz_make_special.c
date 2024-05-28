@@ -12,11 +12,11 @@
 
 #include "minishell.h"
 
-void	mz_make_special(t_token **list, t_list *head)
+void	mz_make_special(t_token **list, t_list **head)
 {
-	if (head->nature == 32)
-		head = head->next;
-	else if (head->nature == '|' || head->nature == '|' || head->nature == '|' ||
-		head->nature == '|' || head->nature == '|' || )
-		dir hadi
+	// if (head->nature == 32)
+	// 	head = head->next;
+	// else if (head->nature == '|' || head->nature == '|' || head->nature == '|' ||
+	// 	head->nature == '|' || head->nature == '|' || )
+	// 	dir hadi
 }

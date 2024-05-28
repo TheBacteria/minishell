@@ -18,6 +18,8 @@ int	make_space_nd(t_list **head, char *s, int i)
 	char	*str;
 	int		n;
 
+	new = NULL;
+	str = NULL;
 	n = i;
 	while (mz_is_space(s[i]) && s[i])
 		i++;
@@ -36,6 +38,8 @@ int	make_word_nd(t_list **head, char *s, int i)
 	char	*str;
 	int		n;
 
+	new = NULL;
+	str = NULL;
 	n = i;
 	while (!mz_is_space(s[i]) && !mz_is_special(s[i]) && s[i])
 		i++;

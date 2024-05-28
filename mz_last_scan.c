@@ -20,9 +20,9 @@ t_token *mz_last_scan(t_list *head)
 	while (head)
 	{
 		if (head->nature == -1)
-			mz_make_cmd(&list, head);
+			mz_make_cmd(&list, &head);
 		else
-			mz_make_special(&list, head);
+			mz_make_special(&list, &head);
 	}
 	return (list);
 }

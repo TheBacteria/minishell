@@ -51,5 +51,7 @@ t_list	*mz_lstnew(char *content)
 	new -> s = ft_strdup(content);
 	new -> next = NULL;
 	new->prev = NULL;
+	new->quote = 0;
+	new->d_quote = 0;
 	return (new);
 }

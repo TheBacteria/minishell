@@ -34,11 +34,11 @@ int	main(int ac, char **av, char **env)
 		}
 		linked = mz_parser(s);
 		free(s);
-		while (linked)
-		{
-			printf("%s  --> %i\n", linked->s, linked->nature);
-			linked = linked->next;
-		}
+		// while (linked)
+		// {
+		// 	printf("%s  --> %i\n", linked->s, linked->nature);
+		// 	linked = linked->next;
+		// }
 	}
 	return (0);
 }
