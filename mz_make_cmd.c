@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:46:12 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/28 10:40:42 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/05/30 11:20:47 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@ static void	mz_simple(t_token **list, t_list **head)
 	{
 		tmp = s;
 		if ((*head)->nature == 32)
+		{
 			s = ft_strjoin(s, " ");
+			while ((*head)->nature == 32)
+				(*head) = (*head)->next;
+		}
 		else
 			s = ft_strjoin(s, (*head)->s);
 		free(tmp);

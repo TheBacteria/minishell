@@ -6,13 +6,15 @@
 #    By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/22 09:40:06 by mzouine           #+#    #+#              #
-#    Updated: 2024/05/23 11:25:01 by mzouine          ###   ########.fr        #
+#    Updated: 2024/05/30 09:19:11 by mzouine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
 
-SRC = env_parse.c mz_lexer.c ft_list.c mz_make_cmd.c lexer_utils1.c mz_make_special.c lexer_utils2.c mz_parser.c main.c mz_utils.c mz_checker.c yasser_lst.c mz_last_scan.c
+SRC = env_parse.c mz_lexer.c ft_list.c mz_make_cmd.c lexer_utils1.c mz_make_special.c\
+		lexer_utils2.c mz_parser.c main.c mz_utils.c mz_checker.c yasser_lst.c mz_last_scan.c\
+		mz_split.c
 
 OBJS = $(SRC:%.c=%.o)
 CC = cc
