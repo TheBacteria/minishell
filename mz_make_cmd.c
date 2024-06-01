@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:46:12 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/01 08:45:17 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/01 09:56:55 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ static void	mz_simple(t_token **list, t_list **head)
 		free(tmp);
 		(*head) = (*head)->next;
 	}
+	printf("SSSSSS=>  %s\n", s);
+	printf("fin wsel=>>    %s\n", (*head)->s);
 	(*list)->args = mz_arr((*list)->args, NULL, s, 1);
 	
 	// int i = 0;
