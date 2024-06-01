@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:46:12 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/01 15:09:10 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/01 15:22:17 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,13 @@ static void	mz_d_quote(t_token **list, t_list **head)
 	{
 		tmp = s;
 		s = ft_strjoin(s, (*head)->s);
-		free(s);
+		free(tmp);
 		(*head) = (*head)->next;
 	}
 	tmp = s;
 	s = ft_strjoin(s, "\"");
 	free(tmp);
+	(*head) = (*head)->next;
 	(*list)->args = mz_arr((*list)->args, NULL, s, 1);
 }
 
@@ -45,12 +46,13 @@ static void	mz_quote(t_token **list, t_list **head)
 	{
 		tmp = s;
 		s = ft_strjoin(s, (*head)->s);
-		free(s);
+		free(tmp);
 		(*head) = (*head)->next;
 	}
 	tmp = s;
 	s = ft_strjoin(s, "\'");
 	free(tmp);
+	(*head) = (*head)->next;
 	(*list)->args = mz_arr((*list)->args, NULL, s, 1);
 }
 
@@ -90,7 +92,6 @@ void	mz_make_cmd(t_token **list, t_list **head)
 	ft_lstadd_back(list, ft_lstnew((*head)->s), NULL);
 	(*list)->nature = -1;
 	(*head) = (*head)->next;
-	printf("\nAppaaaaaaaah\n");
 	while ((*head) && (*head)->nature == 32)
 		(*head) = (*head)->next;
 	if ((*head) && (*head)->nature == -1)
