@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:00:38 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/31 10:04:04 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/01 10:43:05 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main(int ac, char **av, char **env)
 		while (linked)
 		{
 			printf("%s  --> %i\n", linked->cmd, linked->nature);
-			while (linked->args[i])
+			while (linked->args && linked->args[i])
 			{
 				printf("\n arg_%i ->>>>> %s\n", i, linked->args[i]);
 				i++;

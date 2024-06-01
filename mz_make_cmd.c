@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:46:12 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/01 10:39:57 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/01 15:03:57 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void	mz_make_cmd(t_token **list, t_list **head)
 	s = NULL;
 
 	ft_lstadd_back(list, ft_lstnew((*head)->s), NULL);
+	(*list)->nature = -1;
 	(*head) = (*head)->next;
 	printf("\nAppaaaaaaaah\n");
 	while ((*head) && (*head)->nature == 32)
@@ -98,7 +99,6 @@ void	mz_make_cmd(t_token **list, t_list **head)
 		mz_quote(list, head);
 	else if ((*head) && (*head)->nature == '\"')
 		mz_d_quote(list, head);
-
 }
 
 	// while ((*head))
