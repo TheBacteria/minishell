@@ -6,13 +6,13 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:46:12 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/01 17:23:26 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/01 17:26:04 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static void	mz_d_quote(t_token **list, t_list **head)
+static void	mz_d_quote(t_token *list, t_list **head)
 {
 	char	*s;
 	char	*tmp;
@@ -31,10 +31,10 @@ static void	mz_d_quote(t_token **list, t_list **head)
 	s = ft_strjoin(s, "\"");
 	free(tmp);
 	(*head) = (*head)->next;
-	(*list)->args = mz_arr((*list)->args, NULL, s, 1);
+	list->args = mz_arr(list->args, NULL, s, 1);
 }
 
-static void	mz_quote(t_token **list, t_list **head)
+static void	mz_quote(t_token *list, t_list **head)
 {
 	char	*s;
 	char	*tmp;
@@ -53,10 +53,10 @@ static void	mz_quote(t_token **list, t_list **head)
 	s = ft_strjoin(s, "\'");
 	free(tmp);
 	(*head) = (*head)->next;
-	(*list)->args = mz_arr((*list)->args, NULL, s, 1);
+	list->args = mz_arr(list->args, NULL, s, 1);
 }
 
-static void	mz_simple(t_token **list, t_list **head)
+static void	mz_simple(t_token *list, t_list **head)
 {
 	char *s;
 	char *tmp;
@@ -78,30 +78,31 @@ static void	mz_simple(t_token **list, t_list **head)
 		free(tmp);
 		(*head) = (*head)->next;
 	}
-	(*list)->args = mz_arr((*list)->args, NULL, s, 1);
+	list->args = mz_arr(list->args, NULL, s, 1);
 }
 
 void	mz_make_cmd(t_token **list, t_list **head)
 {
 	char *s;
 	char *tmp;
+	t_token	*new;
 	
 
 	s = NULL;
-
-	ft_lstadd_back(list, ft_lstnew((*head)->s), NULL);
-	(*list)->nature = (*head)->nature;
+	new = ft_lstnew((*head)->s);
+	ft_lstadd_back(list, new, NULL);
+	new->nature = (*head)->nature;
 	(*head) = (*head)->next;
 	while ((*head))
 	{
 	while ((*head) && (*head)->nature == 32)
 		(*head) = (*head)->next;
 	if ((*head) && (*head)->nature == -1)
-		mz_simple(list, head);
+		mz_simple(new, head);
 	else if ((*head) && (*head)->nature == '\'')
-		mz_quote(list, head);
+		mz_quote(new, head);
 	else if ((*head) && (*head)->nature == '\"')
-		mz_d_quote(list, head);
+		mz_d_quote(new, head);
 	else
 		break ;
 	}

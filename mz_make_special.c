@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:47:38 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/01 17:03:42 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/01 17:29:35 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,19 @@ void	mz_make_special(t_token **list, t_list **head)
 {
 	char *s;
 	char *tmp;
+	t_token *new;
 	
 
 	s = NULL;
+	new = NULL;
 
 	if ((*head)->nature == '<' || (*head)->nature == '>')
 		mz_make_cmd(list, head);
 	else
 	{
-		ft_lstadd_back(list, ft_lstnew((*head)->s), NULL);
-		(*list)->nature = (*head)->nature;
+		new = ft_lstnew((*head)->s);
+		ft_lstadd_back(list, new, NULL);
+		new->nature = (*head)->nature;
 		(*head) = (*head)->next;
 	}
-	
 }
