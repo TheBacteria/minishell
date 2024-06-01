@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 15:12:44 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/01 15:16:32 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/01 17:09:26 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ t_token *mz_last_scan(t_list *head)
 		{
 			mz_make_cmd(&list, &head);
 		}
+		else if (head->nature == 32)
+			head = head->next;
 		else
 		{
 			mz_make_special(&list, &head);

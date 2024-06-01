@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:46:12 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/01 15:24:13 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/01 17:23:26 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	mz_make_cmd(t_token **list, t_list **head)
 	s = NULL;
 
 	ft_lstadd_back(list, ft_lstnew((*head)->s), NULL);
-	(*list)->nature = -1;
+	(*list)->nature = (*head)->nature;
 	(*head) = (*head)->next;
 	while ((*head))
 	{
@@ -106,6 +106,8 @@ void	mz_make_cmd(t_token **list, t_list **head)
 		break ;
 	}
 }
+
+// echo "lol" > tex.txt | ls -la
 
 	// while ((*head))
 	// {
