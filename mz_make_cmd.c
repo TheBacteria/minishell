@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:46:12 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/01 17:26:04 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/01 17:35:56 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ static void	mz_simple(t_token *list, t_list **head)
 void	mz_make_cmd(t_token **list, t_list **head)
 {
 	char *s;
-	char *tmp;
 	t_token	*new;
 	
 
@@ -108,7 +107,7 @@ void	mz_make_cmd(t_token **list, t_list **head)
 	}
 }
 
-// echo "lol" > tex.txt | ls -la
+// echo appah "lol > this" 'haha ls > fuck' ss ll > tex.txt | ls -l -a | pwd
 
 	// while ((*head))
 	// {

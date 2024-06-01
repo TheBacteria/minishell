@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:47:38 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/01 17:29:35 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/01 17:33:07 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	mz_make_special(t_token **list, t_list **head)
 {
 	char *s;
-	char *tmp;
 	t_token *new;
 	
 

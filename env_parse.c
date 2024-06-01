@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 12:05:47 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/23 12:05:03 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/01 17:32:45 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 t_list	*env_parse(char **envp)
 {
 	int		i;
-	int		j;
 	t_list	*env;
 	t_list	*head;
 	

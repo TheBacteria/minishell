@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:00:38 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/01 17:26:52 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/01 17:34:57 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(int ac, char **av, char **env)
 	t_list	*envp;
 	t_token	*linked;
 
+	(void)av;
 	if (ac != 1)
 	{
 		printf("Error!\nPlease execute the program without arguments!\n");
