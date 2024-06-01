@@ -33,6 +33,8 @@ static int	mz_arr_counter(char **org)
 {
 	int	i;
 
+	if (org == NULL)
+		return (0);
 	i = 0;
 	while (org[i])
 		i++;

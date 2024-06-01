@@ -34,9 +34,16 @@ int	main(int ac, char **av, char **env)
 		}
 		linked = mz_parser(s);
 		free(s);
+
+		int i = 0;
 		while (linked)
 		{
 			printf("%s  --> %i\n", linked->cmd, linked->nature);
+			while (linked->args[i])
+			{
+				printf("\n arg_%i ->>>>> %s\n", i, linked->args[i]);
+				i++;
+			}
 			linked = linked->next;
 		}
 	}

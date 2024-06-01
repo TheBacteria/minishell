@@ -20,6 +20,7 @@ t_token	*ft_lstnew(char *cmd)
 	head = (t_token *)malloc(sizeof(t_token));
 	if (head == NULL)
 		return (NULL);
+	head->args = NULL;
 	head->next = NULL;
 	head->previous = NULL;
 	head->cmd = cmd;
