@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:46:12 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/01 09:56:55 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/01 10:39:57 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,24 +66,17 @@ static void	mz_simple(t_token **list, t_list **head)
 		if ((*head)->nature == 32)
 		{
 			s = ft_strjoin(s, " ");
-			while ((*head)->nature == 32)
+			while ((*head) && (*head)->nature == 32)
 				(*head) = (*head)->next;
 		}
-		else
+		if ((*head) && ((*head)->nature == -1))
 			s = ft_strjoin(s, (*head)->s);
+		else
+			break ;
 		free(tmp);
 		(*head) = (*head)->next;
 	}
-	printf("SSSSSS=>  %s\n", s);
-	printf("fin wsel=>>    %s\n", (*head)->s);
 	(*list)->args = mz_arr((*list)->args, NULL, s, 1);
-	
-	// int i = 0;
-	// while ((*list)->args[i])
-	// {
-	// 	printf("\n%s\n", (*list)->args[i]);
-	// 	i++;
-	// }
 }
 
 void	mz_make_cmd(t_token **list, t_list **head)
