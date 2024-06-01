@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:46:12 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/01 15:22:17 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/01 15:24:13 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ void	mz_make_cmd(t_token **list, t_list **head)
 	ft_lstadd_back(list, ft_lstnew((*head)->s), NULL);
 	(*list)->nature = -1;
 	(*head) = (*head)->next;
+	while ((*head))
+	{
 	while ((*head) && (*head)->nature == 32)
 		(*head) = (*head)->next;
 	if ((*head) && (*head)->nature == -1)
@@ -100,6 +102,9 @@ void	mz_make_cmd(t_token **list, t_list **head)
 		mz_quote(list, head);
 	else if ((*head) && (*head)->nature == '\"')
 		mz_d_quote(list, head);
+	else
+		break ;
+	}
 }
 
 	// while ((*head))
