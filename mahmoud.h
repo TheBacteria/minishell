@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 13:26:40 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/28 12:08:40 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/05/31 10:02:49 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ t_list	*mz_lstnew(char *content);
 void	mz_lstadd_back(t_list **lst, t_list *new);
 t_list	*mz_lstlast(t_list *lst);
 t_list	*env_parse(char **envp);
-t_list	*mz_parser(char *s);
+t_token	*mz_parser(char *s);
 int		mz_is_space(char c);
 int		mz_is_special(char c);
 int		make_space_nd(t_list **head, char *s, int i);

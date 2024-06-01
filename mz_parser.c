@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 15:54:01 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/30 10:39:23 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/05/31 11:06:18 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static t_list *mz_first_scan(char *s)
 	return (head);
 }
 
-t_list	*mz_parser(char *s)
+t_token	*mz_parser(char *s)
 {
 	t_list	*head;
 	t_list	*tmp;
@@ -41,5 +41,5 @@ t_list	*mz_parser(char *s)
 	tmp = head;
 	// here should be the second scan for syntax errors!
 	list = mz_last_scan(head);
-	return (head);
+	return (list);
 }
