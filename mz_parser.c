@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 15:54:01 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/31 11:06:18 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/14 11:26:03 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ t_token	*mz_parser(char *s)
 	
 	head = mz_first_scan(s);
 	tmp = head;
+	// mz_syntax(tmp);
 	// here should be the second scan for syntax errors!
 	list = mz_last_scan(head);
 	return (list);
