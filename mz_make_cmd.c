@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:46:12 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/01 17:35:56 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/14 15:28:55 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ static void	mz_d_quote(t_token *list, t_list **head)
 	tmp = s;
 	s = ft_strjoin(s, "\"");
 	free(tmp);
-	(*head) = (*head)->next;
+	if (*head)
+		(*head) = (*head)->next;
 	list->args = mz_arr(list->args, NULL, s, 1);
 }
 
@@ -52,7 +53,8 @@ static void	mz_quote(t_token *list, t_list **head)
 	tmp = s;
 	s = ft_strjoin(s, "\'");
 	free(tmp);
-	(*head) = (*head)->next;
+	if (*head)
+		(*head) = (*head)->next;
 	list->args = mz_arr(list->args, NULL, s, 1);
 }
 
