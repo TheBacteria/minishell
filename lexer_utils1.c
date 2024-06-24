@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 17:39:06 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/23 16:32:02 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/24 14:41:33 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,20 +112,27 @@ int	make_quote(t_list **head, char *s, int i)
 {
 	t_list	*new;
 	char	*str;
+	int		tmp;
 
 	if (s[i + 1] == '\'')
 	{
 		str = ft_substr(s, i, 2);
 		new = mz_lstnew(str);
-		new->nature = 78;
+		new->nature = -1;
 		i = i + 2;
 	}
 	else
 	{
-		str = ft_substr(s, i, 1);
+		tmp = mz_search(s, i, '\'');
+		if (tmp == -1)
+		{
+			printf("ERRRROOOR A JEMI\n");
+			exit(1);
+		}
+		str = ft_substr(s, i, tmp);
 		new = mz_lstnew(str);
-		new->nature = '\'';
-		i = i + 1;
+		new->nature = -1;
+		i = i + tmp;
 	}
 	free(str);
 	mz_lstadd_back(head, new);

@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:30:52 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/22 16:33:25 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/24 14:37:52 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,16 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		final[i++] = s2[j++];
 	final[i] = '\0';
 	return (final);
+}
+
+int	mz_search(char *s, int i, char c)
+{
+	i += 1;
+	while (s[i])
+	{
+		if (s[i] == c)
+			return (i + 1);
+		i++;
+	}
+	return (-1);
 }
