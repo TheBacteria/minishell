@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:00:38 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/24 13:29:52 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/25 15:29:29 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	main(int ac, char **av, char **env)
 	while (1)
 	{
 		s = readline("minishell:");
+		add_history(s);
 		if (!s)
 		{
 			printf("Error!\nreadline returned NULL\n");
