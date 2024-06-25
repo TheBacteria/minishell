@@ -6,11 +6,23 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 15:54:01 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/25 15:23:50 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/25 16:53:25 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+static void mz_splitter(t_token *head)
+{
+	t_token	*tmp;
+
+	tmp = head;
+	while (head)
+	{
+		head->args = mz_split(head->args[0], ' ');
+		head = head->next;
+	}
+}
 
 static t_list *mz_first_scan(char *s)
 {
@@ -40,9 +52,11 @@ t_token	*mz_parser(char *s)
 	t_token	*list;
 	
 	head = mz_first_scan(s);
+	
 	tmp = head;
 	// mz_syntax(tmp);
 	// here should be the second scan for syntax errors!
 	list = mz_last_scan(head);
+	mz_splitter(list);
 	return (list);
 }

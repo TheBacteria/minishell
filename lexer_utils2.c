@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 18:17:09 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/25 16:22:12 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/25 16:36:20 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,10 @@ int	make_dquote(t_list **head, char *s, int i)
 	{
 		tmp = mz_search(s, i, '\"');
 		if (tmp == -1)
-			tmp = 0;
+			tmp = 1;
 		str = ft_substr(s, i, tmp);
+		// if (str[ft_strlen(str) - 1] == 32)
+		// 	str[ft_strlen(str) - 1] = '\0';
 		new = mz_lstnew(str);
 		new->nature = -1;
 		i = i + tmp;
