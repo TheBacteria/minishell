@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 15:54:01 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/24 13:44:35 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/25 15:23:50 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ static t_list *mz_first_scan(char *s)
 	head = NULL;
 	while (s[i])
 	{
+		if (s[i] == 32 && s[i+1] == '\0')
+			return (head);
 		if (mz_is_space(s[i]))
 			i = make_space_nd(&head, s, i);
 		else if (mz_is_special(s[i]))
