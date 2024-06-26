@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:46:12 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/22 17:42:06 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/26 16:25:06 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,16 @@ static void	mz_simple(t_token *list, t_list **head)
 	list->args = mz_arr(list->args, NULL, s, 1);
 }
 
+// static void	mz_redirection(t_token **list, t_list **head)
+// {
+// 	mz_make_special(list, head);
+// }
+
 void	mz_make_cmd(t_token **list, t_list **head)
 {
 	char *s;
 	t_token	*new;
+	t_token	*tmp;
 	
 
 	s = NULL;
@@ -104,6 +110,8 @@ void	mz_make_cmd(t_token **list, t_list **head)
 		mz_quote(new, head);
 	else if ((*head) && (*head)->nature == '\"')
 		mz_d_quote(new, head);
+	else if ((*head) && ((*head)->nature == 60 || (*head)->nature == 62))
+		mz_make_special(list, head);
 	else
 		break ;
 	}
