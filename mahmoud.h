@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 13:26:40 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/25 16:53:34 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/26 12:21:13 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,6 @@ char	**mz_arr(char **org, char **arr, char *s, int flag);
 void    mz_syntax(t_list *lst);
 int     mz_search(char *s, int i, char c);
 size_t	ft_strlen(const char *s);
+char	**mz_nul_split(char const *s, char c, int n);
 
 #endif

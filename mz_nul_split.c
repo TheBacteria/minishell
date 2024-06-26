@@ -1,46 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mz_split.c                                         :+:      :+:    :+:   */
+/*   mz_nul_split.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 10:39:42 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/26 12:19:45 by mzouine          ###   ########.fr       */
+/*   Created: 2024/06/26 12:20:11 by mzouine           #+#    #+#             */
+/*   Updated: 2024/06/26 12:48:29 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static unsigned int	mz_word_count(const char *s, char c)
+static unsigned int	mz_word_count(const char *s, char c, int n)
 {
-	unsigned int	i;
-	unsigned int	j;
+	int	i;
+	int	j;
 
 	j = 0;
 	i = 0;
-	while (s[i])
+	while (i < n)
 	{
-		while (s[i] == c && s[i])
+		while (s[i] == c && i < n)
 			i++;
-		if (s[i] != c && s[i])
+		if (s[i] != c && i < n)
 			j++;
-		while (s[i] != c && s[i])
+		while (s[i] != c && i < n)
 			i++;
 	}
 	return (j);
 }
 
-static char	*mz_word_finder(const char *s, char c, int *word)
+static char	*mz_word_finder(const char *s, char c, int *word, int n)
 {
 	int		i;
 	int		j;
 	char	*str;
 
-	while (s[*word] && s[*word] == c)
+	while (*word < n && s[*word] == c)
 		(*word)++;
 	i = *word;
-	while (s[*word] && s[*word] != c)
+	while (*word < n && s[*word] != c)
 		(*word)++;
 	str = malloc((*word - i) + 1);
 	if (!str)
@@ -72,7 +72,7 @@ static char	**freemem(char **final)
 	return (NULL);
 }
 
-char	**mz_split(char const *s, char c)
+char	**mz_nul_split(char const *s, char c, int n)
 {
 	char			**final;
 	unsigned int	i;
@@ -82,12 +82,12 @@ char	**mz_split(char const *s, char c)
 		return (NULL);
 	word = 0;
 	i = 0;
-	final = malloc((mz_word_count(s, c) + 1) * sizeof(char *));
+	final = malloc((mz_word_count(s, c, n) + 1) * sizeof(char *));
 	if (!final)
 		return (NULL);
-	while (i < mz_word_count(s, c))
+	while (i < mz_word_count(s, c, n))
 	{
-		final[i] = mz_word_finder(s, c, &word);
+		final[i] = mz_word_finder(s, c, &word, n);
 		if (!final[i])
 			return (freemem(final));
 		i++;

@@ -6,21 +6,50 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 15:54:01 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/25 17:09:08 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/26 12:47:42 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
+static char	*mz_nuller(t_token *head)
+{
+	int		i;
+	int		flag;
+	char	*arr;
+
+	i = 0;
+	arr = head->args[0];
+	flag = -1;
+	while (arr[i])
+	{
+		if (flag == -1 && arr[i] == '\"')
+			flag = 1;
+		else if (flag == -1 && arr[i] == '\'')
+			flag = 2;
+		else
+		{
+			if (flag == -1 && arr[i] == 32)
+				arr[i] = '\0';
+			else if ((flag == 1 && arr[i] == '\"') || (flag == 2 && arr[i] == '\''))
+				flag = -1;
+		}
+			i++;
+		}
+		return (arr);
+}
+
 static void mz_splitter(t_token *head)
 {
 	t_token	*tmp;
+	int		len;
 
 	tmp = head;
-	while (head && head->args)
+	if (tmp && tmp->args)
 	{
-		head->args = mz_split(head->args[0], ' ');
-		head = head->next;
+		len = ft_strlen(tmp->args[0]);
+		tmp->args[0] = mz_nuller(tmp);
+		tmp->args = mz_nul_split(tmp->args[0], '\0', len);
 	}
 }
 
