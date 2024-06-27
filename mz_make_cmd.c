@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:46:12 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/26 17:19:00 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/27 16:20:08 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,27 +83,12 @@ static void	mz_simple(t_token *list, t_list **head)
 	list->args = mz_arr(list->args, NULL, s, 1);
 }
 
-static void	mz_redirection(t_token **list, t_list **head, int *i)
-{
-	t_list	**tmp;
-
-	tmp = head;
-	(*i) = 1;
-	mz_make_special(list, head);
-	// (*tmp) = (*tmp)->next;
-	// (*tmp) = (*tmp)->next;
-	// head = tmp;
-	(*list) = (*list)->previous;
-}
-
-int	mz_make_cmd(t_token **list, t_list **head)
+void	mz_make_cmd(t_token **list, t_list **head)
 {
 	char *s;
 	t_token	*new;
-	int		i;
 
 	s = NULL;
-	i = 0;
 	new = ft_lstnew((*head)->s);
 	ft_lstadd_back(list, new, NULL);
 	new->nature = (*head)->nature;
@@ -118,12 +103,11 @@ int	mz_make_cmd(t_token **list, t_list **head)
 			mz_quote(new, head);
 		else if ((*head) && (*head)->nature == '\"')
 			mz_d_quote(new, head);
-		// else if ((*head) && ((*head)->nature == 60 || (*head)->nature == 62))
-		// 	mz_redirection(list, head, &i);
+		else if ((*head) && ((*head)->nature == 60 || (*head)->nature == 62))
+			mz_make_redi(list, head);
 		else
-			return (i);
+			break ;
 	}
-	return (i);
 }
 
 // echo appah "lol > this" 'haha ls > fuck' ss ll > tex.txt | ls -l -a | pwd

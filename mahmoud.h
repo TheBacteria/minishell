@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 13:26:40 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/26 16:47:58 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/27 18:13:36 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,13 @@ int		make_c_par(t_list **head, char *s, int i);
 int		make_star(t_list **head, char *s, int i);
 t_token *mz_last_scan(t_list *head);
 void	mz_make_special(t_token **list, t_list **head);
-int     mz_make_cmd(t_token **list, t_list **head);
+void     mz_make_cmd(t_token **list, t_list **head);
 char	**mz_arr(char **org, char **arr, char *s, int flag);
 void    mz_syntax(t_list *lst);
 int     mz_search(char *s, int i, char c);
 size_t	ft_strlen(const char *s);
 char	**mz_nul_split(char const *s, char c, int n);
 void	mz_make_redi(t_token **list, t_list **head);
+void    mz_splitter(t_token *head);
 
 #endif
