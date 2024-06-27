@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 16:26:56 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/27 18:35:01 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/27 18:46:53 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,3 +58,4 @@ void mz_splitter(t_token *head)
 		tmp = tmp->next;
 	}
 }
+// ls -l -p > haha -a -z || echo hello as das ""
