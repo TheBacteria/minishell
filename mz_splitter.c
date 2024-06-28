@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 16:26:56 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/28 19:09:55 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/28 20:47:15 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,9 +91,11 @@ void mz_splitter(t_token *head)
 			arr[j] = mz_arr(arr[j], mz_nul_split(tmp->args[i], '\0', len), NULL, 2);
 			i++;
 		}
-		tmp->args = arr[j];
+		if (tmp && tmp->args)
+			tmp->args = arr[j];
 		tmp = tmp->next;
 		j++;
 	}
 }
 // ls -l -p > haha -a -z || echo hello as das ""
+// ls "asd" >d as
