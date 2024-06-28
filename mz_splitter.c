@@ -6,20 +6,20 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 16:26:56 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/28 15:10:07 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/28 15:33:56 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static char	*mz_nuller(t_token *head)
+static char	*mz_nuller(t_token *head, int n)
 {
 	int		i;
 	int		flag;
 	char	*arr;
 
 	i = 0;
-	arr = head->args[0];
+	arr = head->args[n];
 	flag = -1;
 	while (arr[i])
 	{
@@ -87,11 +87,15 @@ void mz_splitter(t_token *head)
 		while (tmp && tmp->args && tmp->args[i])
 		{
 			len = ft_strlen(tmp->args[i]);
-			tmp->args[i] = mz_nuller(tmp);
+			tmp->args[i] = mz_nuller(tmp, i);
 			// if (!arr[j])
 			// 	arr[j] = mz_nul_split(tmp->args[i], '\0', len);
 			// else
 			arr[j] = mz_arr(arr[j], mz_nul_split(tmp->args[i], '\0', len), NULL, 2);
+			
+			printf("\n======%s\n========%i-->%i\n", tmp->args[0], 0, i);
+			printf("\n======%s\n========%i-->%i\n", tmp->args[1], 1, i);
+
 			i++;
 		}
 		tmp->args = arr[j];
