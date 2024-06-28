@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 16:26:56 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/27 18:46:53 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/28 15:10:07 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,23 +39,64 @@ static char	*mz_nuller(t_token *head)
 		return (arr);
 }
 
+static char ***mz_triple_init(t_token *head)
+{
+	t_token *tmp;
+	int		i;
+	char	***final;
+
+	i = 0;
+	final = NULL;
+	tmp = head;
+	if (!head)
+		return (NULL);
+	while (tmp)
+	{
+		i++;
+		tmp = tmp->next;
+	}
+	final = (char ***)malloc(i * sizeof(char **) + 1);
+	if (!final)
+	{
+		printf("malloc fail in triple arr\n");
+		exit(1);
+	}
+	while (i > 0)
+	{
+		final[i] = NULL;
+		i--;
+	}
+	// final[i] = '\0';
+	return (final);
+}
+
 void mz_splitter(t_token *head)
 {
 	t_token	*tmp;
 	int		len;
 	int		i;
+	char	***arr;
+	int		j;
 
 	tmp = head;
+	arr = mz_triple_init(head);
+	j= 0;
 	while (tmp)
 	{
-		if (tmp->args)
+		i = 0;
+		while (tmp && tmp->args && tmp->args[i])
 		{
-			i = 1;
-			len = ft_strlen(tmp->args[0]);
-			tmp->args[0] = mz_nuller(tmp);
-			tmp->args = mz_nul_split(tmp->args[0], '\0', len);
+			len = ft_strlen(tmp->args[i]);
+			tmp->args[i] = mz_nuller(tmp);
+			// if (!arr[j])
+			// 	arr[j] = mz_nul_split(tmp->args[i], '\0', len);
+			// else
+			arr[j] = mz_arr(arr[j], mz_nul_split(tmp->args[i], '\0', len), NULL, 2);
+			i++;
 		}
+		tmp->args = arr[j];
 		tmp = tmp->next;
+		j++;
 	}
 }
 // ls -l -p > haha -a -z || echo hello as das ""
