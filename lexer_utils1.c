@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 17:39:06 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/30 18:55:07 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/30 19:01:06 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ int	make_quote(t_list **head, char *s, int i)
 		str = ft_substr(s, i, 2);
 		new = mz_lstnew(str);
 		new->nature = -1;
-		i = i + 2;
+		tmp = i + 2;
 	}
 	else
 	{
