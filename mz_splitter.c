@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 16:26:56 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/30 16:36:02 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/30 18:47:03 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,4 +97,5 @@ void mz_splitter(t_token *head)
 	}
 }
 // ls -l -p > haha -a -z || echo hello as das ""
-// ls "asd" >d as
+// ls "asd" > d as
+// printf("\nspace\n")     ;

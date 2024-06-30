@@ -1,1 +1,1 @@
-git add . && git commit -m "auto push" && git push && clear
+git add . && git commit -m "xxxxxxx" && git push && clear

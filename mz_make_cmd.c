@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:46:12 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/28 19:58:14 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/30 18:18:35 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	mz_d_quote(t_token *list, t_list **head)
 {
 	char	*s;
 	char	*tmp;
-	
+
 	s = NULL;
 	s = ft_strjoin(s, "\"");
 	(*head) = (*head)->next;
