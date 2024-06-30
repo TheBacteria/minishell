@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 16:26:56 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/28 20:47:15 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/30 16:36:02 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ static char ***mz_triple_init(t_token *head)
 	char	***final;
 
 	i = 0;
-	final = NULL;
 	tmp = head;
 	if (!head)
 		return (NULL);
@@ -55,18 +54,18 @@ static char ***mz_triple_init(t_token *head)
 		i++;
 		tmp = tmp->next;
 	}
-	final = (char ***)malloc(i * sizeof(char **) + 1);
+	final = (char ***)malloc((i + 1) * sizeof(char **));
 	if (!final)
 	{
 		printf("malloc fail in triple arr\n");
 		exit(1);
 	}
-	while (i > 0)
+	while (i >= 0)
 	{
 		final[i] = NULL;
 		i--;
 	}
-	// final[i] = '\0';
+	// final[i] = NULL;
 	return (final);
 }
 

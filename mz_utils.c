@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:30:52 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/24 14:37:52 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/06/30 16:16:09 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,4 +102,29 @@ int	mz_search(char *s, int i, char c)
 		i++;
 	}
 	return (-1);
+}
+
+void	*ft_memset(void *b, int c, size_t len)
+{
+	size_t			i;
+	unsigned char	*tmp;
+
+	tmp = (unsigned char *)b;
+	i = 0;
+	while (i < len)
+		tmp[i++] = (unsigned char)c;
+	return (b);
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*result;
+
+	result = NULL;
+	if ((count * size) > SIZE_T_MAX)
+		return (NULL);
+	result = malloc(count * size);
+	if (result == NULL)
+		return (NULL);
+	return (ft_memset(result, 0, count * size));
 }
