@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 15:09:46 by mzouine           #+#    #+#             */
-/*   Updated: 2024/05/23 16:58:20 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/07/02 19:56:59 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ t_token	*ft_lstnew(char *cmd)
 	head->cmd = cmd;
 	head->right = NULL;
 	head->left = NULL;
+	head->key_d_q = NULL;
+	head->key_q = NULL;
 	head->nature = 0;
 	head->quote = 0;
 	head->d_quote = 0;

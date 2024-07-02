@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 16:33:34 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/24 14:44:11 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/07/02 19:54:29 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ t_list	*mz_lstnew(char *content)
 	new -> s = ft_strdup(content);
 	new -> next = NULL;
 	new->prev = NULL;
+	new->key_q = NULL;
+	new->key_d_q = NULL;
 	new->quote = 0;
 	new->d_quote = 0;
 	return (new);

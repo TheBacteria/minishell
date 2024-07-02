@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 16:26:56 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/30 18:47:03 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/07/01 18:24:51 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,13 @@ static char	*mz_nuller(t_token *head, int n)
 		{
 			if (flag == -1 && arr[i] == 32)
 				arr[i] = '\0';
-			else if ((flag == 1 && arr[i] == '\"') || (flag == 2 && arr[i] == '\''))
+			else if ((flag == 1 && arr[i] == '\"')
+				|| (flag == 2 && arr[i] == '\''))
 				flag = -1;
 		}
-			i++;
-		}
-		return (arr);
+		i++;
+	}
+	return (arr);
 }
 
 static char ***mz_triple_init(t_token *head)
@@ -87,7 +88,7 @@ void mz_splitter(t_token *head)
 		{
 			len = ft_strlen(tmp->args[i]);
 			tmp->args[i] = mz_nuller(tmp, i);
-			arr[j] = mz_arr(arr[j], mz_nul_split(tmp->args[i], '\0', len), NULL, 2);
+			arr[j] = mz_arr(arr[j], mz_nl_sp(tmp->args[i], '\0', len), NULL, 2);
 			i++;
 		}
 		if (tmp && tmp->args)

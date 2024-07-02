@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:20:11 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/28 15:25:10 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/07/01 18:24:45 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static char	**freemem(char **final)
 	return (NULL);
 }
 
-char	**mz_nul_split(char const *s, char c, int n)
+char	**mz_nl_sp(char const *s, char c, int n)
 {
 	char			**final;
 	unsigned int	i;

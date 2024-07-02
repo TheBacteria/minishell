@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:00:38 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/28 20:32:39 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/07/02 20:03:57 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int	main(int ac, char **av, char **env)
 			while (linked->args && linked->args[i])
 			{
 				printf("arg_%i ->> [%s]\n", i, linked->args[i]);
+				printf("===========\nKey_q = %s\n", linked->key_q);
+				printf("Key_d_q = %s\n\n", linked->key_d_q);
 				i++;
 			}
 			linked = linked->next;

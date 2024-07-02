@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 16:20:39 by ymassiou          #+#    #+#             */
-/*   Updated: 2024/05/23 15:34:43 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/07/02 19:56:33 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ typedef struct s_token
 	char			*out;
 	int				fd_in;
 	int				fd_out;
+	char            *key_q;
+    char            *key_d_q;
 	struct s_token	*right;
 	struct s_token	*left;
 	t_redir			*redirs_out;
