@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 20:19:07 by mzouine           #+#    #+#             */
-/*   Updated: 2024/07/02 20:47:26 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/07/03 10:49:35 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,27 @@ int	mz_key_assign(char *s)
 {
 	int		key;
 	int		i;
+	int		q;
+	int		d_q;
 
 	i = 0;
+	q = 0;
+	d_q = 0;
 	key = mz_get_key();
 	if (key < 0)
 		key = key * -1;
 	while (s[i])
 	{
+		if (s[i] == '\'')
+			q = 1;
+		else if (s[i] == '\"')
+			d_q = 1;
 		i++;
+		while (q == 1 && s[i])
+		{
+			
+			i++;
+		}
 	}
 	return (key);
 }
