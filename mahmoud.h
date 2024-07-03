@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 13:26:40 by mzouine           #+#    #+#             */
-/*   Updated: 2024/07/02 20:40:14 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/07/03 17:52:30 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ size_t	ft_strlen(const char *s);
 char	**mz_nl_sp(char const *s, char c, int n);
 void	mz_make_redi(t_token **list, t_list **head);
 void    mz_splitter(t_token *head);
-int     mz_key_assign(char *s);
+int     mz_key_assign(char **s);
 char	*ft_itoa(int n);
 
 #endif

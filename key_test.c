@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 11:59:17 by mzouine           #+#    #+#             */
-/*   Updated: 2024/07/03 17:49:11 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/07/03 17:49:48 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,82 +17,6 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-char	*ft_strdup(const char *s1)
-{
-	char	*cpy;
-	size_t	i;
-
-	i = 0;
-	cpy = (char *) malloc(ft_strlen(s1) + 1);
-	if (cpy == NULL)
-		return (NULL);
-	while (s1[i])
-	{
-		cpy[i] = s1[i];
-		i++;
-	}
-	cpy[i] = '\0';
-	return (cpy);
-}
-
-static int	mz_int_counter(int n)
-{
-	int	i;
-	int	counter;
-
-	counter = 0;
-	i = n;
-	if (n <= 0)
-	{
-		counter = 1;
-		i = -n;
-	}
-	while (i > 0)
-	{
-		counter++;
-		i = i / 10;
-	}
-	return (counter);
-}
-
-char	*ft_itoa(int n)
-{
-	int		len;
-	char	*str;
-	int		sign;
-
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	sign = 0;
-	len = mz_int_counter(n);
-	str = malloc(len + 1);
-	if (!str)
-		return (NULL);
-	if (n < 0)
-	{
-		n = -n;
-		sign = -1;
-	}
-	str[len] = '\0';
-	while (len > 0)
-	{
-		str[--len] = n % 10 + 48;
-		n = n / 10;
-	}
-	if (sign == -1)
-		str[0] = '-';
-	return (str);
-}
 
 
 static int mz_get_key(void)
@@ -140,12 +64,10 @@ static int mz_next_q(char *final, int j, char *key, int flag)
 	}
 	else if (flag == 1)
 	{
-		// printf("\nkey = %s\nj = %i\n flag = %i", key, j, flag);
 		final[j++] = '-';
 		while (key[i])
 			final[j++] = key[i++];
 		final[j] = '\0';
-		// printf("\nfinal = %s\n %i", final, j);
 		return (j);
 	}
 	else if (flag == 2)
