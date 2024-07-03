@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 11:59:17 by mzouine           #+#    #+#             */
-/*   Updated: 2024/07/03 12:06:17 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/07/03 17:49:11 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,33 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+char	*ft_strdup(const char *s1)
+{
+	char	*cpy;
+	size_t	i;
+
+	i = 0;
+	cpy = (char *) malloc(ft_strlen(s1) + 1);
+	if (cpy == NULL)
+		return (NULL);
+	while (s1[i])
+	{
+		cpy[i] = s1[i];
+		i++;
+	}
+	cpy[i] = '\0';
+	return (cpy);
+}
 
 static int	mz_int_counter(int n)
 {
@@ -67,15 +94,6 @@ char	*ft_itoa(int n)
 	return (str);
 }
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
 
 static int mz_get_key(void)
 {
@@ -96,27 +114,75 @@ static int mz_get_key(void)
     return (key);
 }
 
-static mz_key_insert(char *final, char *s, char *key)
+static	int mz_flag(char c, int flag)
+{
+	if (c == '\'' && flag == 0)
+		return (1);
+	else if (c == '\'' && flag == 1)
+		return (0);
+	else if (c == '\"' && flag == 0)
+		return (2);
+	else if (c == '\"' && flag == 2)
+		return (0);
+	else
+		return (flag);
+}
+
+static int mz_next_q(char *final, int j, char *key, int flag)
+{
+	int	i;
+
+	i = 0;
+	if (flag == 0)
+	{
+		final[j] = '$';
+		return (j + 1);
+	}
+	else if (flag == 1)
+	{
+		// printf("\nkey = %s\nj = %i\n flag = %i", key, j, flag);
+		final[j++] = '-';
+		while (key[i])
+			final[j++] = key[i++];
+		final[j] = '\0';
+		// printf("\nfinal = %s\n %i", final, j);
+		return (j);
+	}
+	else if (flag == 2)
+	{
+		while (key[i])
+			final[j++] = key[i++];
+		return (j);
+	}
+	else
+		return (-1);
+}
+
+static void mz_key_insert(char *final, char *s, char *key)
 {
 	int		i;
 	int		j;
+	int		flag;
 
 	i = 0;
 	j = 0;
-	while (s[i])
+	flag = 0;
+	while(s[i])
 	{
-		while(s[i] && s[i] != '\'' && s[i] != '\"')
+		flag = mz_flag(s[i], flag);
+		if (s[i] == '$')
 		{
-			final[j] = s[i];
-			j++;
+			j = mz_next_q(final, j, key, flag);
 			i++;
 		}
-		if (s[i] == '\'')
-			j = mz_next_q(final, s, key, &); // or while still didn't reach quote
-		else if (s[i] == '\"')
-			j = ;
-		i++;
+		else
+		{
+			final[j] = s[i];
+			i++;
+			j++;
+		}
 	}
+	final[j] = '\0';
 }
 
 static int mz_size_count(char *s, char *key_s)
@@ -137,7 +203,7 @@ static int mz_size_count(char *s, char *key_s)
 	return (j);
 }
 
-int	mz_key_assign(char *s)
+int	mz_key_assign(char **s)
 {
 	int		key;
 	char	*key_s;
@@ -149,9 +215,10 @@ int	mz_key_assign(char *s)
 	if (key < 0)
 		key = key * -1;
 	key_s = ft_itoa(key);
-	final = malloc(mz_size_count(s, key_s));
-	mz_key_insert(final, s, key_s);
-	
+	final = malloc(mz_size_count(*s, key_s));
+	mz_key_insert(final, *s, key_s);
+	free(*s);
+	*s = final;
 	return (key);
 }
 
@@ -160,6 +227,7 @@ int main(int ac, char **av)
 	int i = 0;
 	int	len = ft_strlen(av[1]);
 	char *s;
+	int key;
 	s = malloc (len + 1);
 	while (av[1][i])
 	{
@@ -168,6 +236,7 @@ int main(int ac, char **av)
 	}
 	s[i] = '\0';
 	i = 0;
-	printf("* %s * \n", s);
-
+	printf("Before= * %s * \n", s);
+	key = mz_key_assign(&s);
+	printf("Afterr= * %s * \n->>> %i", s, key);
 }
