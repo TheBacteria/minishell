@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 20:19:07 by mzouine           #+#    #+#             */
-/*   Updated: 2024/07/03 18:07:18 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/07/04 20:03:20 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,12 @@ static int mz_next_q(char *final, int j, char *key, int flag)
 	int	i;
 
 	i = 0;
-	if (flag == 0)
+	if (flag == 1)
 	{
 		final[j] = '$';
 		return (j + 1);
 	}
-	else if (flag == 1)
+	else if (flag == 0)
 	{
 		final[j++] = '-';
 		while (key[i])
@@ -87,7 +87,10 @@ static void mz_key_insert(char *final, char *s, char *key)
 		flag = mz_flag(s[i], flag);
 		if (s[i] == '$')
 		{
-			j = mz_next_q(final, j, key, flag);
+			if (s[i + 1] == '\"' || s[i + 1] == '\'')
+				j = mz_next_q(final, j, key, 1);
+			else
+				j = mz_next_q(final, j, key, flag);
 			i++;
 		}
 		else

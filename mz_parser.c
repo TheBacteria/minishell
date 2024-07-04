@@ -6,13 +6,13 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 15:54:01 by mzouine           #+#    #+#             */
-/*   Updated: 2024/07/03 19:21:54 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/07/04 19:47:35 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static t_list *mz_first_scan(char *s, int key)
+static t_list *mz_first_scan(char *s)
 {
 	t_list	*head;
 	int		i;
@@ -38,17 +38,14 @@ t_token	*mz_parser(char *s)
 	t_list	*head;
 	t_list	*tmp;
 	t_token	*list;
-	int		key;
 
-	key = mz_key_assign(&s);
-	head = mz_first_scan(s, key);
+	head = mz_first_scan(s);
 	tmp = head;
 	// while (tmp)
 	// {
 	// 	printf("%s---> %i\n", tmp->s, tmp->nature);
 	// 	tmp = tmp->next;
 	// }
-	printf("\nKEY = %i\n", key);
 	// exit(0);/////////
 	// mz_syntax(tmp);
 	// here should be the second scan for syntax errors!

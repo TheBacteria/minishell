@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:00:38 by mzouine           #+#    #+#             */
-/*   Updated: 2024/07/03 19:45:02 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/07/04 20:36:00 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	main(int ac, char **av, char **env)
 	char	*s;
 	t_list	*envp;
 	t_token	*linked;
+	int 	key;
 
 	(void)av;
 	if (ac != 1)
@@ -34,10 +35,12 @@ int	main(int ac, char **av, char **env)
 			printf("Error!\nreadline returned NULL\n");
 			return (1);
 		}
+		key = mz_key_assign(&s);
 		linked = mz_parser(s);
 		free(s);
 
 		int i = 0;
+		printf("\nKey: %i\n", key);
 		while (linked)
 		{
 			i = 0;
@@ -53,7 +56,8 @@ int	main(int ac, char **av, char **env)
 	return (0);
 }
 
-
+// ma 7edek ma l9itich space kharja 3la quotes rak ba9i fel command
+// ghadi t7iyed lquote li l9iti lewla o t7iyed li ghadi tl9a b7alha;
 
 
 

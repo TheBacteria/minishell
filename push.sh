@@ -1,1 +1,1 @@
-git add . && git commit -m "@@@@@@@@@" && git push && clear
+git add . && git commit -m "BEFORE FIXING CMD" && git push && clear
