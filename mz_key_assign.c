@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 20:19:07 by mzouine           #+#    #+#             */
-/*   Updated: 2024/07/04 20:03:20 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/07/08 15:20:38 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ static int mz_get_key(void)
 static	int mz_flag(char c, int flag)
 {
 	if (c == '\'' && flag == 0)
-		return (1);
+		return (1);// in single quotes
 	else if (c == '\'' && flag == 1)
-		return (0);
+		return (0);// pure
 	else if (c == '\"' && flag == 0)
-		return (2);
+		return (2);// in double quotes
 	else if (c == '\"' && flag == 2)
-		return (0);
+		return (0);// pure
 	else
 		return (flag);
 }
@@ -57,23 +57,21 @@ static int mz_next_q(char *final, int j, char *key, int flag)
 	}
 	else if (flag == 0)
 	{
-		final[j++] = '-';
 		while (key[i])
 			final[j++] = key[i++];
-		final[j] = '\0';
-		return (j);
+		return (j);// call the sufix function here and make it return j
 	}
 	else if (flag == 2)
 	{
 		while (key[i])
 			final[j++] = key[i++];
-		return (j);
+		return (j);// call the sufix function here and make it return j
 	}
 	else
 		return (-1);
 }
 
-static void mz_key_insert(char *final, char *s, char *key)
+static void mz_key_insert(char *final, char *s, char *key, char *key_half)
 {
 	int		i;
 	int		j;
@@ -89,16 +87,14 @@ static void mz_key_insert(char *final, char *s, char *key)
 		{
 			if (s[i + 1] == '\"' || s[i + 1] == '\'')
 				j = mz_next_q(final, j, key, 1);
+			else if (flag == 0)
+				j = mz_next_q(final, j, key_half, flag);
 			else
 				j = mz_next_q(final, j, key, flag);
 			i++;
 		}
 		else
-		{
-			final[j] = s[i];
-			i++;
-			j++;
-		}
+			final[j++] = s[i++];
 	}
 	final[j] = '\0';
 }
@@ -116,7 +112,7 @@ static int mz_size_count(char *s, char *key_s)
 			j++;
 		i++;
 	}
-	j = j * ft_strlen(key_s);
+	j = j * (ft_strlen(key_s) + 1) * 2;
 	j = j + ft_strlen(s) + 1;
 	return (j);
 }
@@ -126,6 +122,7 @@ int	mz_key_assign(char **s)
 	int		key;
 	char	*key_s;
 	char	*final;
+	char	*key_half;
 	int		i;
 
 	i = 0;
@@ -133,8 +130,9 @@ int	mz_key_assign(char **s)
 	if (key < 0)
 		key = key * -1;
 	key_s = ft_itoa(key);
+	key_half = ft_itoa(key / 2);
 	final = malloc(mz_size_count(*s, key_s));
-	mz_key_insert(final, *s, key_s);
+	mz_key_insert(final, *s, key_s, key_half);
 	// free(*s);
 	*s = final;
 	return (key);
