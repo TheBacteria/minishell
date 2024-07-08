@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 13:26:40 by mzouine           #+#    #+#             */
-/*   Updated: 2024/07/08 16:09:17 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/07/08 16:32:39 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_info
 {
     char    *final;
     int     j;
+    int     i;
 } t_info;
 
 enum e_token

@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 20:19:07 by mzouine           #+#    #+#             */
-/*   Updated: 2024/07/08 16:08:19 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/07/08 18:07:51 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,35 @@ static    int mz_flag(char c, int flag)
         return (flag);
 }
 
+static int  mz_valid(char c, int *flag)
+{
+    if (c == '_' || (c >= '0' && c <= '9') || (c >= 'a' && c <= 'z')
+        || (c >= 'A' && c<= 'Z'))
+        return (1);
+    if (c == '?' && *flag == 0)
+    {
+        *flag = 1;
+        return(1);
+    }
+    return (0);
+}
+
+static int  mz_next_word(t_info *info, char *s, char *key)
+{
+    int n;
+    int flag;
+    
+    flag = 0;
+    n = 0;
+    info->i++;
+    while (s[info->i] && mz_valid(s[info->i], &flag) == 1)
+        info->final[info->j++] = s[info->i++];
+    while(key[n])
+        info->final[info->j++] = key[n++];
+    return (info->j);
+}
+//   echo $home "$path" '$xxx'
+// $?
 static int mz_next_q(t_info *info, char *s, char *key, int flag)
 {
     int    i;
@@ -53,19 +82,20 @@ static int mz_next_q(t_info *info, char *s, char *key, int flag)
     if (flag == 1)
     {
         info->final[info->j] = '$';
+        info->i++;
         return (info->j + 1);
     }
     else if (flag == 0)
     {
         while (key[i])
             info->final[info->j++] = key[i++];
-        return (info->j);// call the sufix function here and make it return j
+        return (mz_next_word(info, s, key));// call the sufix function here and make it return j
     }
     else if (flag == 2)
     {
         while (key[i])
             info->final[info->j++] = key[i++];
-        return (info->j);// call the sufix function here and make it return j
+        return (mz_next_word(info, s, key));// call the sufix function here and make it return j
     }
     else
         return (-1);
@@ -73,27 +103,25 @@ static int mz_next_q(t_info *info, char *s, char *key, int flag)
 
 static void mz_key_insert(t_info *info, char *s, char *key, char *key_half)
 {
-    int        i;
     int        flag;
 
-    i = 0;
+    info->i = 0;
     info->j = 0;
     flag = 0;
-    while(s[i])
+    while(s[info->i])
     {
-        flag = mz_flag(s[i], flag);
-        if (s[i] == '$')
+        flag = mz_flag(s[info->i], flag);
+        if (s[info->i] == '$')
         {
-            if (s[i + 1] == '\"' || s[i + 1] == '\'')
+            if (s[info->i + 1] == '\"' || s[info->i + 1] == '\'')
                 info->j = mz_next_q(info, s, key, 1);
             else if (flag == 0)
                 info->j = mz_next_q(info, s, key_half, flag);
             else
                 info->j = mz_next_q(info, s, key, flag);
-            i++;
         }
         else
-            info->final[info->j++] = s[i++];
+            info->final[info->j++] = s[info->i++];
     }
     info->final[info->j] = '\0';
 }

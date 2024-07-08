@@ -1,1 +1,1 @@
-git add . && git commit -m "BEFORE ADDING THE KEY AT THE END" && git push && clear
+git add . && git commit -m "ADDED THE KEY AFTER !!" && git push && clear
