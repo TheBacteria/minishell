@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 15:54:01 by mzouine           #+#    #+#             */
-/*   Updated: 2024/07/09 11:31:54 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/07/09 17:27:05 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static t_list *mz_first_scan(char *s)
 			i = make_space_nd(&head, s, i);
 		else if (mz_is_special(s[i]))
 			i = make_special_nd(&head, s, i);
-		else
+		else 
 			i = make_word_nd(&head, s, i);
 	}
 	return (head);
@@ -39,7 +39,7 @@ t_token	*mz_parser(char *s)
 	t_list	*tmp;
 	t_token	*list;
 
-	mz_joiner(s);
+	s = mz_joiner(s);
 	head = mz_first_scan(s);
 	tmp = head;
 	// while (tmp)

@@ -1,1 +1,1 @@
-git add . && git commit -m "JOINED" && git push && clear
+git add . && git commit -m "FINAL WITHOUT SYNTAX (CONTINUE USED ;))" && git push && clear
