@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 13:26:40 by mzouine           #+#    #+#             */
-/*   Updated: 2024/07/08 16:32:39 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/07/09 11:32:21 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,6 @@ void	mz_make_redi(t_token **list, t_list **head);
 void    mz_splitter(t_token *head);
 int     mz_key_assign(char **s);
 char	*ft_itoa(int n);
+void	mz_joiner(char *s);
 
 #endif

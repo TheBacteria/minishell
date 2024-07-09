@@ -1,1 +1,1 @@
-git add . && git commit -m "ADDED THE KEY AFTER !!" && git push && clear
+git add . && git commit -m "JOINED" && git push && clear

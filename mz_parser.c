@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 15:54:01 by mzouine           #+#    #+#             */
-/*   Updated: 2024/07/05 13:08:09 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/07/09 11:31:54 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ t_token	*mz_parser(char *s)
 	t_list	*tmp;
 	t_token	*list;
 
+	mz_joiner(s);
 	head = mz_first_scan(s);
 	tmp = head;
 	// while (tmp)
