@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:47:38 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/26 16:28:23 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/07/13 14:54:48 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 
 void	mz_make_special(t_token **list, t_list **head)
 {
-	char *s;
-	t_token *new;
-	
+	char	*s;
+	t_token	*new;
 
 	s = NULL;
 	new = NULL;
-
 	if ((*head)->nature == '<' || (*head)->nature == '>')
 		mz_make_redi(list, head);
 	else

@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:46:12 by mzouine           #+#    #+#             */
-/*   Updated: 2024/07/02 19:59:28 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/07/13 15:00:11 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	mz_quote(t_token *list, t_list **head)
 {
 	char	*s;
 	char	*tmp;
-	
+
 	s = NULL;
 	s = ft_strjoin(s, "\'");
 	(*head) = (*head)->next;
@@ -60,8 +60,8 @@ static void	mz_quote(t_token *list, t_list **head)
 
 static void	mz_simple(t_token *list, t_list **head)
 {
-	char *s;
-	char *tmp;
+	char	*s;
+	char	*tmp;
 
 	s = NULL;
 	while ((*head) && ((*head)->nature == 32 || (*head)->nature == -1))
@@ -85,7 +85,7 @@ static void	mz_simple(t_token *list, t_list **head)
 
 void	mz_make_cmd(t_token **list, t_list **head)
 {
-	char *s;
+	char	*s;
 	t_token	*new;
 
 	s = NULL;
@@ -111,40 +111,3 @@ void	mz_make_cmd(t_token **list, t_list **head)
 			break ;
 	}
 }
-
-// echo appah "lol > this" 'haha ls > fuck' ss ll > tex.txt | ls -l -a | pwd
-
-	// while ((*head))
-	// {
-	// 	printf("%s --> %i\n", (*head)->s, (*head)->nature);
-	// 	(*head) = (*head)->next;
-	// }
-	
-
-
-	
-// 	void	mz_make_cmd(t_token **list, t_list **head)
-// {
-// 	char *s;
-// 	char *tmp;
-	
-
-// 	s = NULL;
-
-// 	ft_lstadd_back(list, ft_lstnew((*head)->s), NULL);
-// 	(*head) = (*head)->next;
-// 	printf("\nAppaaaaaaaah\n");
-// 	while ((*head))
-// 	{
-// 		while ((*head)->nature == 32)
-// 			(*head) = (*head)->next;
-// 		if ((*head)->nature == -1)
-// 			mz_simple(list, head);
-// 		else if ((*head)->nature == '\'')
-// 			mz_quote(list, head);
-// 		else if ((*head)->nature == '\"')
-// 			mz_d_quote(list, head);
-// 		else
-// 			break ;
-// 	}
-// }

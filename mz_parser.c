@@ -6,13 +6,13 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 15:54:01 by mzouine           #+#    #+#             */
-/*   Updated: 2024/07/09 17:27:05 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/07/13 14:54:11 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static t_list *mz_first_scan(char *s)
+static t_list	*mz_first_scan(char *s)
 {
 	t_list	*head;
 	int		i;
@@ -21,13 +21,13 @@ static t_list *mz_first_scan(char *s)
 	head = NULL;
 	while (s[i])
 	{
-		if (s[i] == 32 && s[i+1] == '\0')
+		if (s[i] == 32 && s[i + 1] == '\0')
 			return (head);
 		if (mz_is_space(s[i]))
 			i = make_space_nd(&head, s, i);
 		else if (mz_is_special(s[i]))
 			i = make_special_nd(&head, s, i);
-		else 
+		else
 			i = make_word_nd(&head, s, i);
 	}
 	return (head);

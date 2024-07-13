@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 16:33:34 by mzouine           #+#    #+#             */
-/*   Updated: 2024/07/02 19:54:29 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/07/13 17:35:42 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 t_list	*mz_lstlast(t_list *lst)
 {
-	t_list *tmp;
+	t_list	*tmp;
+
 	if (!lst)
 		return (NULL);
 	while (lst)

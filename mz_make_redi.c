@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 15:46:10 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/26 16:12:05 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/07/13 14:58:27 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	mz_d_quote(t_token *list, t_list **head)
 {
 	char	*s;
 	char	*tmp;
-	
+
 	s = NULL;
 	s = ft_strjoin(s, "\"");
 	(*head) = (*head)->next;
@@ -39,7 +39,7 @@ static void	mz_quote(t_token *list, t_list **head)
 {
 	char	*s;
 	char	*tmp;
-	
+
 	s = NULL;
 	s = ft_strjoin(s, "\'");
 	(*head) = (*head)->next;
@@ -60,8 +60,8 @@ static void	mz_quote(t_token *list, t_list **head)
 
 static void	mz_simple(t_token *list, t_list **head)
 {
-	char *s;
-	char *tmp;
+	char	*s;
+	char	*tmp;
 
 	s = NULL;
 	while ((*head) && ((*head)->nature == 32 || (*head)->nature == -1))
@@ -90,7 +90,7 @@ static void	mz_simple(t_token *list, t_list **head)
 
 void	mz_make_redi(t_token **list, t_list **head)
 {
-	char *s;
+	char	*s;
 	t_token	*new;
 
 	s = NULL;

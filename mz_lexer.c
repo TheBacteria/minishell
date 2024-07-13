@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:08:26 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/30 18:35:48 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/07/13 15:01:33 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	make_space_nd(t_list **head, char *s, int i)
 	mz_lstadd_back(head, new);
 	return (i);
 }
-
 
 int	make_word_nd(t_list **head, char *s, int i)
 {

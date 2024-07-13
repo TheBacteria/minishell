@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 15:48:31 by mzouine           #+#    #+#             */
-/*   Updated: 2024/07/05 11:43:13 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/07/13 17:30:12 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	mz_is_space(char c)
 {
 	if ((c >= 9 && c <= 13) || c == 32)
 		return (1);
-	return (0); 
+	return (0);
 }
 
 int	mz_is_special(char c)
@@ -24,5 +24,5 @@ int	mz_is_special(char c)
 	if (c == '\'' || c == '\"' || c == '|' || c == '<' || c == '>'
 		|| c == '(' || c == ')' || c == '&')
 		return (1);
-	return (0); 
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 16:26:56 by mzouine           #+#    #+#             */
-/*   Updated: 2024/07/01 18:24:51 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/07/13 14:50:58 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ static char	*mz_nuller(t_token *head, int n)
 	return (arr);
 }
 
-static char ***mz_triple_init(t_token *head)
+static char	***mz_triple_init(t_token *head)
 {
-	t_token *tmp;
+	t_token	*tmp;
 	int		i;
 	char	***final;
 
@@ -66,11 +66,10 @@ static char ***mz_triple_init(t_token *head)
 		final[i] = NULL;
 		i--;
 	}
-	// final[i] = NULL;
 	return (final);
 }
 
-void mz_splitter(t_token *head)
+void	mz_splitter(t_token *head)
 {
 	t_token	*tmp;
 	int		len;
@@ -80,7 +79,7 @@ void mz_splitter(t_token *head)
 
 	tmp = head;
 	arr = mz_triple_init(head);
-	j= 0;
+	j = 0;
 	while (tmp)
 	{
 		i = 0;

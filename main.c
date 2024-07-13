@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:00:38 by mzouine           #+#    #+#             */
-/*   Updated: 2024/07/04 20:36:00 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/07/13 17:32:48 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int ac, char **av, char **env)
 	char	*s;
 	t_list	*envp;
 	t_token	*linked;
-	int 	key;
+	int		key;
 
 	(void)av;
 	if (ac != 1)
@@ -38,7 +38,6 @@ int	main(int ac, char **av, char **env)
 		key = mz_key_assign(&s);
 		linked = mz_parser(s);
 		free(s);
-
 		int i = 0;
 		printf("\nKey: %i\n", key);
 		while (linked)
@@ -55,29 +54,3 @@ int	main(int ac, char **av, char **env)
 	}
 	return (0);
 }
-
-// ma 7edek ma l9itich space kharja 3la quotes rak ba9i fel command
-// ghadi t7iyed lquote li l9iti lewla o t7iyed li ghadi tl9a b7alha;
-
-
-
-// ls -la | ( cat -e && wc -l && echo '$VAR') | grep "something i want" > outfile || < infile cat
-
-/*  !! TO FREE ENVP !!!!
-
-	t_list	*test2;
-	test2 = envp;
-	while (envp)
-	{
-		printf("%s\n", envp->s);
-		envp = envp->next;
-	}
-	envp = NULL;
-	while (test2)
-	{
-		envp = test2;
-		free(test2->s);
-		test2 = test2->next;
-		free(envp);
-	}
-*/

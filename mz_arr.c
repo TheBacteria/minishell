@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:01:28 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/27 18:46:07 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/07/13 17:31:12 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ static int	mz_arr_counter(char **org)
 	i = 0;
 	while (org[i])
 		i++;
-
 	return (i);
 }
 
@@ -70,7 +69,7 @@ static char	**mz_addarray(char **org, char **arr, int size)
 	char	**new;
 	int		size_2;
 	int		i;
-	
+
 	i = 0;
 	size_2 = mz_arr_counter(arr);
 	new = malloc((size + size_2 + 1) * sizeof(char *));
@@ -92,7 +91,7 @@ static char	**mz_addarray(char **org, char **arr, int size)
 	return (new);
 }
 
-char	**mz_arr(char **org, char **arr, char *s, int flag) // 1 to add string, 2 to add array !
+char	**mz_arr(char **org, char **arr, char *s, int flag)
 {
 	if (flag == 1)
 		return (mz_addstring(org, s, mz_arr_counter(org)));

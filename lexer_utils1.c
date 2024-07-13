@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 17:39:06 by mzouine           #+#    #+#             */
-/*   Updated: 2024/06/30 19:01:06 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/07/13 17:33:41 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,14 @@ int	make_in(t_list **head, char *s, int i)
 	{
 		str = ft_substr(s, i, 2);
 		new = mz_lstnew(str);
-		new->nature = '>';     //124
+		new->nature = '>';
 		i = i + 2;
 	}
 	else
 	{
 		str = ft_substr(s, i, 1);
 		new = mz_lstnew(str);
-		new->nature = '>'; // '>'
+		new->nature = '>';
 		i = i + 1;
 	}
 	free(str);
@@ -69,14 +69,14 @@ int	make_out(t_list **head, char *s, int i)
 	{
 		str = ft_substr(s, i, 2);
 		new = mz_lstnew(str);
-		new->nature = '<'; // 120
+		new->nature = '<';
 		i = i + 2;
 	}
 	else
 	{
 		str = ft_substr(s, i, 1);
 		new = mz_lstnew(str);
-		new->nature = '<'; // '<'
+		new->nature = '<';
 		i = i + 1;
 	}
 	free(str);
@@ -127,8 +127,6 @@ int	make_quote(t_list **head, char *s, int i)
 		if (tmp == -1)
 			tmp = 1;
 		str = ft_substr(s, i, tmp - i);
-		// if (str[ft_strlen(str) - 1] == 32)
-		// 	str[ft_strlen(str) - 1] = '\0';
 		new = mz_lstnew(str);
 		new->nature = -1;
 	}
