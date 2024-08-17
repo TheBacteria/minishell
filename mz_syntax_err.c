@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mz_syntax_err.c                                    :+:      :+:    :+:   */
+/*   mz_syntax_err2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/12 09:45:10 by mzouine           #+#    #+#             */
-/*   Updated: 2024/08/17 14:04:33 by mzouine          ###   ########.fr       */
+/*   Created: 2024/08/17 16:44:05 by mzouine           #+#    #+#             */
+/*   Updated: 2024/08/17 18:47:55 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,6 @@ static int	mz_flag2(char c, int flag)
 		return (2);
 	else if (c == '\"' && flag == 2)
 		return (0);
-	else if (c == '(' && flag == 0)
-		return (3);
-	else if (c == '(' && flag % 3 == 0)
-		return (flag + 3);
-	else if (c == ')' && flag % 3 == 0)
-		return (flag - 3);
-	else if (c == ')' && flag == 0)
-		return (-1);
 	else
 		return (flag);
 }
@@ -44,20 +36,18 @@ int	mz_syntax_err(char *s)
 	while (s[i])
 	{
 		flag = mz_flag2(s[i], flag);
-		if (((flag == 0 || flag % 3 == 0) && (s[i] == '(' && s[i + 1] == ')'))
-			|| flag < 0)
-			flag = -1;
-		if (flag == -1)
-			break ;
 		i++;
 	}
 	if (flag != 0)
 	{
-		free(s);
-		s = NULL;
 		printf("Syntax Error!\n");
-		// exit(1);
+		free(s);
 		return (1);
 	}
 	return (0);
 }
+/*
+'ABC'| // SE // CHECK BEFORE JOIN 
+(ls)'fsd' // SE // AFTER CPAR: PIPE OR AND OR OR
+((')') // SE
+*/
