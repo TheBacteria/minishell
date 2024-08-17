@@ -1,1 +1,1 @@
-git add . && git commit -m "FIXING NORMINETTE" && git push && clear
+git add . && git commit -m "Syntax Error Lekher  a jmi!!" && git push && clear

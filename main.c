@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:00:38 by mzouine           #+#    #+#             */
-/*   Updated: 2024/07/13 17:32:48 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/08/17 10:14:34 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,10 @@ int	main(int ac, char **av, char **env)
 			printf("Error!\nreadline returned NULL\n");
 			return (1);
 		}
-		key = mz_key_assign(&s);
+		// key = mz_key_assign(&s);
 		linked = mz_parser(s);
+		if (linked == NULL)
+			continue ;
 		free(s);
 		int i = 0;
 		printf("\nKey: %i\n", key);
