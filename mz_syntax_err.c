@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 09:45:10 by mzouine           #+#    #+#             */
-/*   Updated: 2024/08/17 13:13:06 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/08/17 14:04:33 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ int	mz_syntax_err(char *s)
 	while (s[i])
 	{
 		flag = mz_flag2(s[i], flag);
-		if ((flag == 0 || flag % 3 == 0) && (s[i] == '(' && s[i + 1] == ')'))
+		if (((flag == 0 || flag % 3 == 0) && (s[i] == '(' && s[i + 1] == ')'))
+			|| flag < 0)
 			flag = -1;
 		if (flag == -1)
 			break ;
