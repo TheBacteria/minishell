@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 15:54:01 by mzouine           #+#    #+#             */
-/*   Updated: 2024/08/17 11:42:45 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/08/17 16:53:29 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,24 +36,16 @@ static t_list	*mz_first_scan(char *s)
 t_token	*mz_parser(char *s)
 {
 	t_list	*head;
-	t_list	*tmp;
 	t_token	*list;
 
 	if (mz_syntax_err(s) == 1)
+		return (NULL);
+	if (mz_syntax_err2(s) == 1)
 		return (NULL);
 	s = mz_joiner(s);
 	head = mz_first_scan(s);
 	if (mz_syntax_handler(head) == -1)
 		return (NULL);
-	tmp = head;
-	// while (tmp)
-	// {
-	// 	printf("%s---> %i\n", tmp->s, tmp->nature);
-	// 	tmp = tmp->next;
-	// }
-	// exit(0);/////////
-	// mz_syntax(tmp);
-	// here should be the second scan for syntax errors!
 	list = mz_last_scan(head);
 	mz_splitter(list);
 	return (list);

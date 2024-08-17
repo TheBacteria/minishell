@@ -6,13 +6,13 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 11:01:14 by mzouine           #+#    #+#             */
-/*   Updated: 2024/08/17 13:51:08 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/08/17 17:50:19 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static int check_prev(t_list *lst)
+static int mz_check_prev(t_list *lst)
 {
 	t_list	*tmp;
 	tmp = lst;
@@ -26,7 +26,7 @@ static int check_prev(t_list *lst)
 	return (0);
 }
 
-static int	redir_handler(t_list *lst)
+static int	mz_redir_handler(t_list *lst)
 {
 	t_list	*tmp;
 	
@@ -37,7 +37,7 @@ static int	redir_handler(t_list *lst)
 			tmp = tmp->next;
 		if (!tmp)
 			break ;
-		if (check_prev(tmp) == -1)
+		if (mz_check_prev(tmp) == -1)
 			return (-1);
 		tmp = tmp->next;
 		while (tmp && tmp->nature == ' ')
@@ -65,7 +65,7 @@ static	int mz_in_quote(t_list *lst, t_list *nd)
 	return (flag);
 }
 
-static int	pip_handler(t_list	*lst)
+static int	mz_pip_handler(t_list	*lst)
 {
 	t_list *tmp;
 
@@ -92,7 +92,7 @@ static int	pip_handler(t_list	*lst)
 
 int	mz_syntax_handler(t_list *lst)
 {
-	if (pip_handler(lst) || redir_handler(lst))
+	if (mz_pip_handler(lst) || mz_redir_handler(lst) || mz_check_op(lst))
 	{
 		printf("Syntax Error!\n");
 		/* NEED TO FREE THE LINKED LIST HERE !*/
