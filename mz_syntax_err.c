@@ -1,16 +1,77 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mz_syntax_err2.c                                   :+:      :+:    :+:   */
+/*   mz_syntax_err.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 16:44:05 by mzouine           #+#    #+#             */
-/*   Updated: 2024/08/17 18:47:55 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/08/18 16:47:38 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+static int	mz_is_forb(char *s, int n, int i)
+{
+	if (i == 1)
+	{
+		if (s[n] == '\'' || s[n] == '\"' || s[n] == '|' || s[n] == ')'
+			|| s[n] == '&' || s[n] == '\0')
+			return (1);
+	}
+	else if (i == 2)
+	{
+		if ((s[n] == '|' || s[n] == ')' || s[n] == '\0')
+			|| (s[n] == '&' && s[n+1] == '&'))
+			return (0);
+		else
+			return (1);
+	}
+	return (0);
+}
+
+static int check_after_cpar(char *s)
+{
+	int i;
+	
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == ')')
+		{
+			i++;
+			while (s[i] == ' ')
+				i++;
+			if (mz_is_forb(s, i, 2) == 1)
+				return (1);
+		}
+		i++;
+	}
+	return (0);
+}
+
+static int	check_after_special(char *s)
+{
+	int i;
+	
+	i = 0;
+	while (s[i])
+	{
+		if ((s[i] == '|') || (s[i] == '&' && s[i+1] == '&'))
+		{
+			i++;
+			if (s[i] == '|' || s[i] == '&')
+				i++;
+			while (s[i] == ' ')
+				i++;
+			if (mz_is_forb(s, i, 1) == 1)
+				return (1);
+		}
+		i++;
+	}
+	return (0);
+}
 
 static int	mz_flag2(char c, int flag)
 {
@@ -44,10 +105,16 @@ int	mz_syntax_err(char *s)
 		free(s);
 		return (1);
 	}
+	if (check_after_special(s) == 1 || check_after_cpar(s) == 1)
+	{
+		printf("Syntax Error!\n");
+		free(s);
+		return (1);
+	}
 	return (0);
 }
 /*
 'ABC'| // SE // CHECK BEFORE JOIN 
-(ls)'fsd' // SE // AFTER CPAR: PIPE OR AND OR OR
+(ls)'fsd' // SE // AFTER CPAR: PIPE OR AND Cpar
 ((')') // SE
 */
