@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 16:44:05 by mzouine           #+#    #+#             */
-/*   Updated: 2024/08/19 10:37:12 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/08/19 12:52:43 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,8 @@ int	mz_syntax_err(char *s)
 		free(s);
 		return (1);
 	}
-	if (check_after_special(s) == 1 || check_after_cpar(s) == 1)
+	if (check_after_special(s) == 1 || check_after_cpar(s) == 1
+		|| check_before_opar(s) == 1 || check_before_special(s) == 1)
 	{
 		printf("Syntax Error!\n");
 		free(s);
@@ -112,29 +113,5 @@ int	mz_syntax_err(char *s)
 	}
 	return (0);
 }
-/*
-'ABC'| // SE // CHECK BEFORE JOIN 
-(ls)'fsd' // SE // AFTER CPAR: PIPE OR AND Cpar
-((')') // SE
-*/
-
-
-
-// minishell:'"'''
-// =================================================================
-// ==96336==ERROR: AddressSanitizer: heap-buffer-overflow
-
-// minishell:''''''''''''''''
-// =================================================================
-// ==97025==ERROR: AddressSanitizer: heap-buffer-overflow
-
-
-// minishell:$USER'dsfdsf'|"dsfds|dsf"
-// Syntax Error! >> Not a syntax error!
-
-
-
-// minishell:'&&'
-// Syntax Error!
 
 
