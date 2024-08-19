@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 16:44:05 by mzouine           #+#    #+#             */
-/*   Updated: 2024/08/18 16:47:38 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/08/19 10:37:12 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ static int	mz_is_forb(char *s, int n, int i)
 {
 	if (i == 1)
 	{
-		if (s[n] == '\'' || s[n] == '\"' || s[n] == '|' || s[n] == ')'
-			|| s[n] == '&' || s[n] == '\0')
+		if (s[n] == '|' || s[n] == ')' || s[n] == '&' || s[n] == '\0')
 			return (1);
 	}
 	else if (i == 2)
@@ -118,3 +117,24 @@ int	mz_syntax_err(char *s)
 (ls)'fsd' // SE // AFTER CPAR: PIPE OR AND Cpar
 ((')') // SE
 */
+
+
+
+// minishell:'"'''
+// =================================================================
+// ==96336==ERROR: AddressSanitizer: heap-buffer-overflow
+
+// minishell:''''''''''''''''
+// =================================================================
+// ==97025==ERROR: AddressSanitizer: heap-buffer-overflow
+
+
+// minishell:$USER'dsfdsf'|"dsfds|dsf"
+// Syntax Error! >> Not a syntax error!
+
+
+
+// minishell:'&&'
+// Syntax Error!
+
+

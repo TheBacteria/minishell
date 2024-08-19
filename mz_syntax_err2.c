@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 09:45:10 by mzouine           #+#    #+#             */
-/*   Updated: 2024/08/17 18:56:24 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/08/19 10:30:32 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,24 @@ static int	mz_flag2(char *s, int *i, int flag)
 	if (s[*i] == '\'')
 	{
 		(*i)++;
-		while (s[*i] != '\'')
+		while (s[*i] && s[*i] != '\'')
 			(*i)++;
 		(*i)++;
 	}
 	else if (s[*i] == '\"')
 	{
 		(*i)++;
-		while (s[*i] != '\"')
+		while (s[*i] && s[*i] != '\"')
 			(*i)++;
 		(*i)++;
 	}
-	if (s[*i] == '(' && flag == 0)
+	if (s[*i] && s[*i] == '(' && flag == 0)
 		return (3);
-	else if (s[*i] == '(' && flag % 3 == 0)
+	else if (s[*i] && s[*i] == '(' && flag % 3 == 0)
 		return (flag + 3);
-	else if (s[*i] == ')' && flag % 3 == 0)
+	else if (s[*i] && s[*i] == ')' && flag % 3 == 0)
 		return (flag - 3);
-	else if (s[*i] == ')' && flag == 0)
+	else if (s[*i] && s[*i] == ')' && flag == 0)
 		return (-1);
 	else
 		return (flag);
@@ -55,7 +55,8 @@ int	mz_syntax_err2(char *s)
 			flag = -1;
 		if (flag == -1)
 			break ;
-		i++;
+		if (s[i])
+			i++;
 	}
 	if (flag != 0)
 	{
@@ -66,3 +67,28 @@ int	mz_syntax_err2(char *s)
 	}
 	return (0);
 }
+
+/*
+'ABC'| // SE // CHECK BEFORE JOIN 
+(ls)'fsd' // SE // AFTER CPAR: PIPE OR AND Cpar
+((')') // SE
+*/
+
+
+
+// minishell:'"'''
+// =================================================================
+// ==96336==ERROR: AddressSanitizer: heap-buffer-overflow
+
+// minishell:''''''''''''''''
+// =================================================================
+// ==97025==ERROR: AddressSanitizer: heap-buffer-overflow
+
+
+// minishell:$USER'dsfdsf'|"dsfds|dsf"
+// Syntax Error! >> Not a syntax error!
+
+
+
+// minishell:'&&'
+// Syntax Error!
