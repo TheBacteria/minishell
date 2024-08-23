@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 11:32:02 by mzouine           #+#    #+#             */
-/*   Updated: 2024/07/13 15:55:39 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/08/23 13:03:19 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ static int	mz_is_ok(char c)
 		return (1);
 	if (c == '\0')
 		return (1);
+	if (c == '(' || c == ')' || c == '|')
+		return (1);
 	return (0);
 }
 
@@ -27,6 +29,8 @@ static int	mz_swap_qt(char *s, int i, char c)
 {
 	while (i > 0 && mz_is_ok(s[i - 1]) == 0)
 	{
+		if (i > 1 && (s[i - 1] == '&' && s[i - 2] == '&'))
+			break ;
 		s[i] = s[i - 1];
 		s[i - 1] = c;
 		i--;
@@ -36,6 +40,8 @@ static int	mz_swap_qt(char *s, int i, char c)
 		i++;
 	while (s[i] && mz_is_ok(s[i + 1]) == 0)
 	{
+		if (s[i + 1] && (s[i + 1] == '&' && s[i + 2] == '&'))
+			break ;
 		s[i] = s[i + 1];
 		s[i + 1] = c;
 		i++;
@@ -49,6 +55,7 @@ static char	*mz_trimmer(char *s, int i, int j, int flag)
 	char	close;
 	char	*final;
 
+	// printf("before :%s \nXXXXXXXXXXXXXXXXXXXXXX\n", s); // TO REMOVE !@!!!!!! ' " ' " ' "
 	final = malloc(ft_strlen(s) + 1);
 	while (s[i])
 	{
@@ -81,6 +88,8 @@ static char	*mz_trimmer(char *s, int i, int j, int flag)
 			final[j++] = s[i++];
 	}
 	final[j] = '\0';
+	// printf("after :%s \nXXXXXXXXXXXXXXXXXXXXXX\n", final); // TO REMOVE !@!!!!!! '"'"'"
+	// exit(1); // REMOVEEEEEE !! 
 	return (final);
 }
 
