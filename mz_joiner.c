@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 11:32:02 by mzouine           #+#    #+#             */
-/*   Updated: 2024/08/23 13:03:19 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/08/23 13:18:17 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,15 @@ static char	*mz_trimmer(char *s, int i, int j, int flag)
 	final[j] = '\0';
 	// printf("after :%s \nXXXXXXXXXXXXXXXXXXXXXX\n", final); // TO REMOVE !@!!!!!! '"'"'"
 	// exit(1); // REMOVEEEEEE !! 
+	
+/*
+	minishell:'ls"'x"cm'd"
+	Key: 0
+
+	'ls"x'  --> -1
+	arg_0 ->> ["cm'd"]
+	YOU NEED A WAY TO KNOW IF THERE WAS A SPACE OR NOT, SO THAT YASSER KNOW WHEN TO JOIN QUOTES !!!
+*/
 	return (final);
 }
 
@@ -111,5 +120,5 @@ char	*mz_joiner(char *s)
 		else
 			i++;
 	}
-	return (mz_trimmer(s, 0, 0, 0));
+	return (s);
 }
