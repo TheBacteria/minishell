@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 15:09:46 by mzouine           #+#    #+#             */
-/*   Updated: 2024/07/02 19:56:59 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/08/25 12:29:23 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ t_token	*ft_lstnew(char *cmd)
 	head->quote = 0;
 	head->d_quote = 0;
 	head->par = 0;
+	head->join = 1;
 	return (head);
 }
 

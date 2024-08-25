@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 11:32:36 by mzouine           #+#    #+#             */
-/*   Updated: 2024/08/23 10:46:16 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/08/25 13:04:11 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,14 @@ int	check_before_special(char *s)
 {
 	int i;
 	int	j;
+	int flag;
 	
 	i = 0;
+	flag = 0;
 	while (s[i])
 	{
-		if ((s[i] == '|') || (s[i] == '&' && s[i+1] == '&'))
+		flag = mz_flag2(s[i], flag);
+		if (flag == 0 && ((s[i] == '|') || (s[i] == '&' && s[i+1] == '&')))
 		{
 			j = i - 1;
 			i++;

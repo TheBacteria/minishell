@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 16:20:39 by ymassiou          #+#    #+#             */
-/*   Updated: 2024/07/02 19:56:33 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/08/25 12:02:55 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct s_token
 	int				nature;
 	int				quote;
 	int				d_quote;
+	int				join;
 	int				par;
 	char			*in;
 	char			*out;
