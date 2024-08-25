@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 20:19:07 by mzouine           #+#    #+#             */
-/*   Updated: 2024/07/13 15:15:29 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/08/25 18:30:04 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,7 @@ int	mz_key_assign(char **s)
 	char	*key_s;
 	t_info	info;
 	char	*key_half;
-	int		i;
 
-	i = 0;
 	key = mz_get_key();
 	if (key < 0)
 		key = key * -1;

@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 11:32:02 by mzouine           #+#    #+#             */
-/*   Updated: 2024/08/23 13:18:17 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/08/25 18:26:27 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,58 +49,46 @@ static int	mz_swap_qt(char *s, int i, char c)
 	return (i + 1);
 }
 
-static char	*mz_trimmer(char *s, int i, int j, int flag)
-{
-	char	key;
-	char	close;
-	char	*final;
+// static char	*mz_trimmer(char *s, int i, int j, int flag)
+// {
+// 	char	key;
+// 	char	close;
+// 	char	*final;
 
-	// printf("before :%s \nXXXXXXXXXXXXXXXXXXXXXX\n", s); // TO REMOVE !@!!!!!! ' " ' " ' "
-	final = malloc(ft_strlen(s) + 1);
-	while (s[i])
-	{
-		flag = mz_flag(s[i], flag);
-		if ((s[i] == '\"' || s[i] == '\'')
-			&& (s[i + 1] == '\"' || s[i + 1] == '\'') && flag == 0)
-		{
-			close = s[i];
-			key = s[i + 1];
-			i = i + 2;
-			while (s[i])
-			{
-				if (s[i] == key)
-				{
-					if (s[i + 1] == '\'' || s[i + 1] == '\"')
-					{
-						key = s[i + 1];
-						i = i + 2;
-						continue ;
-					}
-					final[j++] = close;
-					i++;
-					break ;
-				}
-				else
-					final[j++] = s[i++];
-			}
-		}
-		else
-			final[j++] = s[i++];
-	}
-	final[j] = '\0';
-	// printf("after :%s \nXXXXXXXXXXXXXXXXXXXXXX\n", final); // TO REMOVE !@!!!!!! '"'"'"
-	// exit(1); // REMOVEEEEEE !! 
-	
-/*
-	minishell:'ls"'x"cm'd"
-	Key: 0
-
-	'ls"x'  --> -1
-	arg_0 ->> ["cm'd"]
-	YOU NEED A WAY TO KNOW IF THERE WAS A SPACE OR NOT, SO THAT YASSER KNOW WHEN TO JOIN QUOTES !!!
-*/
-	return (final);
-}
+// 	final = malloc(ft_strlen(s) + 1);
+// 	while (s[i])
+// 	{
+// 		flag = mz_flag(s[i], flag);
+// 		if ((s[i] == '\"' || s[i] == '\'')
+// 			&& (s[i + 1] == '\"' || s[i + 1] == '\'') && flag == 0)
+// 		{
+// 			close = s[i];
+// 			key = s[i + 1];
+// 			i = i + 2;
+// 			while (s[i])
+// 			{
+// 				if (s[i] == key)
+// 				{
+// 					if (s[i + 1] == '\'' || s[i + 1] == '\"')
+// 					{
+// 						key = s[i + 1];
+// 						i = i + 2;
+// 						continue ;
+// 					}
+// 					final[j++] = close;
+// 					i++;
+// 					break ;
+// 				}
+// 				else
+// 					final[j++] = s[i++];
+// 			}
+// 		}
+// 		else
+// 			final[j++] = s[i++];
+// 	}
+// 	final[j] = '\0';
+// 	return (final);
+// }
 
 char	*mz_joiner(char *s)
 {

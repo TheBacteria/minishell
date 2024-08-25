@@ -3,7 +3,8 @@
 		"bitset": "c",
 		"minishell.h": "c",
 		"sstream": "c",
-		"mahmoud.h": "c"
+		"mahmoud.h": "c",
+		"minishell": "c"
 	},
 	"editor.insertSpaces": false
 }
