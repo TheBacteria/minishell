@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 20:19:07 by mzouine           #+#    #+#             */
-/*   Updated: 2024/08/25 18:30:04 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/08/26 16:58:24 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,9 @@ int	mz_key_assign(char **s)
 	key_half = ft_itoa(key / 2);
 	info.final = malloc(mz_size_count(*s, key_s));
 	mz_key_insert(&info, *s, key_s, key_half);
+	mz_free_char(*s);
+	mz_free_char(key_s);
+	mz_free_char(key_half);
 	*s = info.final;
 	return (key);
 }

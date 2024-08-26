@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 13:26:40 by mzouine           #+#    #+#             */
-/*   Updated: 2024/08/25 21:24:09 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/08/26 16:57:27 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,6 @@ int     mz_check_op(t_list *lst);
 int     check_before_opar(char *s);
 int     check_before_special(char *s);
 char    *mz_key_assign2(char *s, char *key);
+void	mz_free_char(char *s);
 
 #endif

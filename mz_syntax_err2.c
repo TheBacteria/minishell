@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 09:45:10 by mzouine           #+#    #+#             */
-/*   Updated: 2024/08/19 10:30:32 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/08/26 17:24:25 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ static int	mz_flag2(char *s, int *i, int flag)
 		(*i)++;
 		while (s[*i] && s[*i] != '\'')
 			(*i)++;
-		(*i)++;
+		if (s[*i])
+			(*i)++;
 	}
 	else if (s[*i] == '\"')
 	{
@@ -60,8 +61,7 @@ int	mz_syntax_err2(char *s)
 	}
 	if (flag != 0)
 	{
-		free(s);
-		s = NULL;
+		mz_free_char(s);
 		printf("Syntax Error!\n");
 		return (1);
 	}

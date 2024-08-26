@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 20:25:44 by mzouine           #+#    #+#             */
-/*   Updated: 2024/08/25 21:29:15 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/08/26 16:59:00 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ char	*mz_key_assign2(char *s, char *key)
 		i++;
 	}
 	final[j] = '\0';
-	free(s);
+	mz_free_char(s);
+	mz_free_char(key);
 	return (final);
 }

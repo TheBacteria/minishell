@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:30:52 by mzouine           #+#    #+#             */
-/*   Updated: 2024/08/17 10:52:44 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/08/26 16:57:15 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,4 +102,10 @@ int	mz_search(char *s, int i, char c)
 		i++;
 	}
 	return (-1);
+}
+
+void	mz_free_char(char *s)
+{
+	free(s);
+	s = NULL;
 }

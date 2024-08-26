@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 16:44:05 by mzouine           #+#    #+#             */
-/*   Updated: 2024/08/25 13:00:41 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/08/26 17:14:11 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ static int check_after_cpar(char *s)
 			i++;
 			while (s[i] == ' ')
 				i++;
+			if (s[i] == '\0')
+				return (0);
 			if (mz_is_forb(s, i, 2) == 1)
 				return (1);
 		}
@@ -84,6 +86,8 @@ static int	check_after_special(char *s)
 				i++;
 			while (s[i] == ' ')
 				i++;
+			if (s[i] == '\0')
+				return (0);
 			if (mz_is_forb(s, i, 1) == 1)
 				return (1);
 		}
@@ -108,14 +112,14 @@ int	mz_syntax_err(char *s)
 	if (flag != 0)
 	{
 		printf("Syntax Error!\n");
-		free(s);
+		mz_free_char(s);
 		return (1);
 	}
 	if (check_after_special(s) == 1 || check_after_cpar(s) == 1
 		|| check_before_opar(s) == 1 || check_before_special(s) == 1)
 	{
 		printf("Syntax Error!\n");
-		free(s);
+		mz_free_char(s);
 		return (1);
 	}
 	return (0);
