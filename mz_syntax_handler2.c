@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 15:42:05 by mzouine           #+#    #+#             */
-/*   Updated: 2024/08/17 17:56:58 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/08/28 15:54:17 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ int	mz_check_op(t_list *lst)
 			if (mz_check_after(tmp) == 1)
 				return (-1);
 		}
-		tmp = tmp->next;
+		if (tmp)
+			tmp = tmp->next;
 	}
 	return (0);
 }
