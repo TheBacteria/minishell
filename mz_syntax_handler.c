@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 11:01:14 by mzouine           #+#    #+#             */
-/*   Updated: 2024/08/17 17:54:14 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/09/05 15:21:14 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int mz_check_prev(t_list *lst)
 	while (tmp->prev != NULL && tmp->nature == ' ')
 		tmp = tmp->prev;
 	if (tmp->nature != -1 && tmp->nature != '|' && tmp->nature != '<'
-		&& tmp->nature != '>' && tmp->nature != '$')
+		&& tmp->nature != '>' && tmp->nature != '$' && tmp->nature != 32)
 		return (-1);
 	return (0);
 }

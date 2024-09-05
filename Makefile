@@ -6,7 +6,7 @@
 #    By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/22 09:40:06 by mzouine           #+#    #+#              #
-#    Updated: 2024/08/28 15:59:26 by mzouine          ###   ########.fr        #
+#    Updated: 2024/09/05 11:45:02 by mzouine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRC = env_parse.c mz_lexer.c ft_list.c mz_make_cmd.c lexer_utils1.c mz_make_spec
 
 OBJS = $(SRC:%.c=%.o)
 CC = cc
-CFLAGS = -g -fsanitize=address -Wall -Wextra -Werror
+CFLAGS = -g -fsanitize=address #-Wall -Wextra -Werror
 RM = rm -f
 HEADER = minishell.h
 

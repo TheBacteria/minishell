@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 11:32:36 by mzouine           #+#    #+#             */
-/*   Updated: 2024/08/28 16:04:54 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/09/05 15:27:24 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int	check_before_special(char *s)
 				i++;
 			while (j > 0 && s[j] == ' ')
 				j--;
-			if (j <= 0)
+			if (j < 0)
 				return (1);
 			if (mz_is_forb(s, j, 1) == 1)
 				return (1);
