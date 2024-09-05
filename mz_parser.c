@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 15:54:01 by mzouine           #+#    #+#             */
-/*   Updated: 2024/08/25 12:22:29 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/09/03 16:28:58 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ static t_list	*mz_first_scan(char *s)
 t_token	*mz_parser(char *s)
 {
 	t_list	*head;
+	// t_list	*tmp;
 	t_token	*list;
 
 	if (mz_syntax_err(s) == 1)
@@ -46,11 +47,13 @@ t_token	*mz_parser(char *s)
 	head = mz_first_scan(s);
 	if (mz_syntax_handler(head) == -1)
 		return (NULL);
+	// tmp = head;
 	// while (head)
 	// {
-	// 	printf("%s  --> %i", head->s, head->nature);
+	// 	printf("%s  --> %i\n", head->s, head->nature);
 	// 	head = head->next;
 	// }
+	// head = tmp;
 	// exit(1);
 	list = mz_last_scan(head);
 	mz_splitter(list);

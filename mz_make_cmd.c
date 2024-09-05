@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:46:12 by mzouine           #+#    #+#             */
-/*   Updated: 2024/08/25 12:29:14 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/09/03 17:24:29 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,13 +95,12 @@ void	mz_make_cmd(t_token **list, t_list **head)
 	new->key_d_q = (*head)->key_d_q;
 	new->key_q = (*head)->key_q;
 	(*head) = (*head)->next;
+	if ((*head)->nature == 32)
+		new->join = 0;
 	while ((*head))
 	{
 		while ((*head) && (*head)->nature == 32)
-		{
 			(*head) = (*head)->next;
-			(*list)->join = 0;
-		}
 		if ((*head) && (*head)->nature == -1)
 			mz_simple(new, head);
 		else if ((*head) && (*head)->nature == '\'')

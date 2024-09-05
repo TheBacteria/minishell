@@ -6,7 +6,7 @@
 /*   By: mzouine <mzouine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:00:38 by mzouine           #+#    #+#             */
-/*   Updated: 2024/08/26 16:52:05 by mzouine          ###   ########.fr       */
+/*   Updated: 2024/09/03 17:08:55 by mzouine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ int	main(int ac, char **av, char **env)
 		free(s);
 		int i = 0;
 		printf("\nKey: %i\n", key);
-		printf("Join: %i", linked->join);
 		while (linked)
 		{
 			i = 0;
+			printf("Join: %i", linked->join);
 			printf("\n\n%s  --> %i\n", linked->cmd, linked->nature);
 			while (linked->args && linked->args[i])
 			{
